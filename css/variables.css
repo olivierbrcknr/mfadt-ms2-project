@@ -12,6 +12,9 @@
   --color-font: var(--color-black);
   --color-bg:   var(--color-white);
 
+  --max-width: 960px;
+  --max-width-text: 640px;
+
 }
 
 /*@media (prefers-color-scheme: dark) {

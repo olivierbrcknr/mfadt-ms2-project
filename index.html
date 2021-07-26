@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title>MS2 Project</title>
+	<title>How is digital data stored on DNA?</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -10,9 +10,19 @@
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/variables.css">
+  <link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/examples.css">
 
+  <!-- examples -->
   <script type="text/javascript" src="js/example_morse.js"></script>
+  <script type="text/javascript" src="js/example_base2.js"></script>
+  <script type="text/javascript" src="js/example_binaryLetters.js"></script>
+  <script type="text/javascript" src="js/example_music.js"></script>
+  <script type="text/javascript" src="js/example_textToDNA.js"></script>
+  <script type="text/javascript" src="js/example_trafficLight.js"></script>
+
+
 	<script type="text/javascript" src="js/default.js"></script>
 
 </head>
@@ -20,31 +30,245 @@
 
 <div id="wrapper">
 
-  <div>
+  <section>
 
     <h1>
-      DNA Data Storage
+      How is digital data stored on DNA?
     </h1>
 
-  </div>
+  </section>
 
   <!-- Introduction -->
 
   <section>
 
-    <h2>
-      Code
-    </h2>
+    <div class="content">
+      <h2>Introduction</h2>
 
-    <div class="explanation">
-      With four elements, one already can create a lot more things. For example one could create music. The game “The Legend of Zelda Ocarina of Time” uses a couple of songs made only with four notes. Try to play some of them!
+      <h3>
+        Why would one want to store data on DNA?
+      </h3>
     </div>
 
-    <div id="exampleMorse" class="interaction-placeholder">
+  </section>
+
+  <section>
+
+    <div class="content">
+
+      <h2>
+        Code
+      </h2>
+
+      <h3>
+        What is code?
+      </h3>
+
+      <p>
+        To first understand how digital data is stored and how DNA works, we need to understand code.
+      </p>
+
+      <blockquote>
+        Code is a system of words, letters, figures, or symbols used to represent others, especially for the purposes of secrecy. — Oxford Languages
+      </blockquote>
+
+      <p>
+        What does this mean? Code basically is anything that needs to be known by the spectator so it can be understood. A language for example is a form of code. One needs to know the language to be able to understand it. Let's take french for example. This language is based on the Latin alphabet. So first of all one needs to understand the little pictograms that make up a letter. It takes us humans a while to understand what each letter stands for. So to understand that an A is an "A", we first need to understand this code—the key. Understanding that, we then are able to take chains of these characters to form words, then sentences, then paragraphs and texts. But we also need to understand grammar and vocabulary to understand the language. And this is only one language! The Chinese alphabet looks completely different and we need to start understanding the characters again.
+      </p>
+
+    </div>
+
+    <div class="content">
+
+      <h3>
+        Traffic Light
+      </h3>
+
+      <p>
+        Ok, this has been a quite elaborate example of code. Let's take a couple of steps back. Let's think of a form of code that only requires two values. On or off. A classic example for this one would be a traffic light. Green means go, while red means stop. A simple code that we learned early on to know when it's safe to cross a street.
+      </p>
+
+      <div id="exampleTrafficLight" class="interaction-placeholder">
+      </div>
+
+    </div>
+
+    <div class="content">
+
+      <h3>
+        Morse Code
+      </h3>
+
+      <p>
+        Great! A simple code with only two values! But can we create even more complex information just using two values?
+      </p>
+
+      <div id="exampleMorse" class="interaction-placeholder">
+      </div>
+
+    </div>
+    <div class="content">
+
+      <h3>
+        Music
+      </h3>
+
+      <p>
+        With four elements, one already can create a lot more things. For example one could create music. The game “The Legend of Zelda Ocarina of Time” uses a couple of songs made only with four notes. Try to play some of them!
+      </p>
+
+      <div id="exampleMusic" class="interaction-placeholder">
+      </div>
 
     </div>
 
   </section>
+
+  <section>
+
+    <div class="content">
+      <h2>
+        Binary Code
+      </h2>
+    </div>
+
+    <div class="content">
+      <h3>
+        Numbers on the base of 2
+      </h3>
+
+      <div id="exampleBase2" class="interaction-placeholder">
+      </div>
+    </div>
+    <div class="content">
+      <h3>
+        Generating Letters
+      </h3>
+
+      <p>
+        Using eight of these bits, we have one byte. A byte can have up to 256 different combinations.
+      </p>
+      <p>
+        If one byte is one letter, these 8 binary values can display one of 256 letters if one is able to understand the code that each combination is assigned to. This is how text is stored on your computer.
+      </p>
+      <p>
+        Play around below to test what letter is using which code in your computer. Or the other way around!
+      </p>
+
+      <div id="exampleBinaryletters" class="interaction-placeholder">
+      </div>
+
+    </div>
+    <div class="content">
+      <h3>
+        The data on our digital devices
+      </h3>
+
+      <p>
+        Above have been two very straight forward examples. But just like languages, this can get infinitely complex. `1`s and `0`s get stored to create letters and numbers, which get stored to generated sentences, etc. In the beginning the language is specified, this way the computer is able to understand if this is an image, a text document, or even something completely different!
+      </p>
+      <p>
+        Reversing this process means that everything on your computer is finally stored in 1s and 0s.
+      </p>
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="content">
+      <h2>
+        DNA
+      </h2>
+
+      <h3>
+        How does our DNA work?
+      </h3>
+
+      <p>
+        DNA is the building plan of life on Earth. It is this little strand that contains all the information that is needed to build plants 🪴, animals 🦆, and humans 🤸.  But how does it do that?
+      </p>
+      <p>
+        Let's start with the components the DNA is built of: Nucleobases. There are five of those, so called, primary nucleobases. Four of them form the DNA strand: adenine (A), cytosine (C), guanine (G), and thymine (T). These four are put in a chain and store this way the instructions to build every cell of a living organism. Enzymes read the strand and translate it into RNA which then is used by Ribosomes to form proteins. **[read more here]**
+      </p>
+
+      <p>
+        But are just four bases sufficient to form every living cell that exists on Earth? Yes! Remember how digital data is stored using only `1` and `0`? Our DNA behaves similarly, but storing data on the base of 4 instead of 2.
+      </p>
+    </div>
+
+    <div class="content">
+      <h3>
+        Numbers on the base of 4
+      </h3>
+
+      <div id="exampleBase4" class="interaction-placeholder">
+      </div>
+    </div>
+
+    <div class="content">
+
+      <h3>
+        Storing simple data on DNA
+      </h3>
+
+      <p>
+        To make this a little more tangible, try writing a sentence below and see how the data would be stored in a DNA strand.
+      </p>
+
+      <div id="exampleTextToDNA" class="interaction-placeholder">
+      </div>
+
+    </div>
+
+  </section>
+
+  <section>
+
+    <div class="content">
+      <h2>
+        Outro
+      </h2>
+    </div>
+
+  </section>
+
+  <footer>
+
+    <div class="row">
+      <div class="d50">
+        <h5>Sources</h5>
+
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+
+      <div class="d25">
+        <h5>About</h5>
+
+        <p>
+          This project is a result of the MFA Design and Technology Major Studio 2 class at Parsons School of Design, The New School, led by Justin Bakse.
+        </p>
+      </div>
+
+      <div class="d25">
+        <h5>Other</h5>
+        <ul>
+          <li>
+            <a href="https://github.com/olivierbrcknr/mfadt-ms2-project">GitHub Repository</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <nav>
+    <!-- js -->
+  </nav>
 
 </div>
 

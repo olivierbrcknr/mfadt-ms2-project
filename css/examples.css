@@ -1,0 +1,53 @@
+
+
+#exampleMorse {
+  user-select: none;
+  background: none;
+}
+
+#exampleMorse .letter {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+#exampleMorse .morseCode {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#exampleMorse .letter.isDissolving,
+#exampleMorse .morseCode.isDissolving {
+  opacity: 0;
+}
+#exampleMorse .morseCode .morseSignal {
+  background: var(--color-black);
+  height: 20px;
+  width: 20px;
+  margin: 0 10px;
+  border-radius: 20px;
+}
+#exampleMorse .morseCode .morseSignal.l {
+  width: 100px;
+}
+
+#exampleMorse .input {
+  height: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#exampleMorse .morseButton {
+  cursor: pointer;
+  width: 30%;
+  background: #CCC;
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+#exampleMorse .morseButton:active {
+  background: #BBB;
+}

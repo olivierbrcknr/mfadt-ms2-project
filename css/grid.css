@@ -1,0 +1,14 @@
+
+
+.row {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+}
+
+.d50 {
+  width: 50%;
+}
+.d25 {
+  width: 25%;
+}
