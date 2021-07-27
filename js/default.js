@@ -68,8 +68,8 @@ const setupExamples = () => {
 
   example_trafficLight(document.querySelector('#exampleTrafficLight'))
 
-  example_base2(document.querySelector('#exampleBase2'))
-  // example_base4(document.querySelector('#exampleBase4'))
+  example_base(document.querySelector('#exampleBase2'), 2)
+  example_base(document.querySelector('#exampleBase4'), 4, 5)
 
   example_binaryLetters(document.querySelector('#exampleBinaryletters'))
 

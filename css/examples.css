@@ -56,35 +56,35 @@
 
 
 /* Base 2 ————————————————————————————————————— */
-#exampleBase2 {
-
+.exampleBase {
+  user-select: none;
 }
-#exampleBase2 .binaryVal {
+.exampleBase .binaryVal {
   display: flex;
   height: 30%;
   align-items: center;
 }
-#exampleBase2 .binaryVal .binaryDigit {
+.exampleBase .binaryVal .binaryDigit {
   font-size: 3rem;
   flex: 1;
   text-align: center;
   cursor: pointer;
 }
-#exampleBase2 .baseValues {
+.exampleBase .baseValues {
   display: flex;
   height: 20%;
 }
-#exampleBase2 .baseValues .baseVal {
+.exampleBase .baseValues .baseVal {
   flex: 1;
   text-align: center;
 }
-#exampleBase2 .input {
+.exampleBase .input {
   height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#exampleBase2 .input .number {
+.exampleBase .input .number {
   outline: 0;
   appearance:  none;
   border: none;

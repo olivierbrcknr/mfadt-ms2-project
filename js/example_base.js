@@ -1,4 +1,4 @@
-const base2_HTML = `
+const base_HTML = `
   <div class="binaryVal">
 
   </div>
@@ -10,9 +10,9 @@ const base2_HTML = `
   </div>
 `
 
-const example_base2 = (container) => {
+const example_base = (container, base, maxDigits = 8) => {
 
-  container.innerHTML = base2_HTML
+  container.innerHTML = base_HTML
 
   const numberInput = container.querySelector('.number')
   const binaryDisplay = container.querySelector('.binaryVal')
@@ -20,12 +20,12 @@ const example_base2 = (container) => {
 
   let currentVal = ""
 
-  const maxDigits = 8
-  numberInput.setAttribute('max',Math.pow( 2, maxDigits ) * 2 - 1)
+  // const maxDigits = 8
+  numberInput.setAttribute('max',Math.pow( base, maxDigits ) * base - 1)
 
   // setup HTML
   for( let i = maxDigits; i >= 0; i--){
-    baseValues.innerHTML += "<div class='baseVal'>"+Math.pow( 2, i )+"</div>"
+    baseValues.innerHTML += "<div class='baseVal'>"+Math.pow( base, i )+"</div>"
     binaryDisplay.innerHTML += "<div class='binaryDigit'>0</div>"
   }
 
@@ -33,7 +33,7 @@ const example_base2 = (container) => {
 
   const convertDecToBinary = (dec) => {
 
-    const bin = ( dec >>> 0).toString(2)
+    const bin = ( dec >>> 0).toString(base)
     let binaryVal = bin
 
     for( let i = bin.length; i <= maxDigits; i++ ){
@@ -48,7 +48,7 @@ const example_base2 = (container) => {
 
   const convertBinaryToDec = (bin) => {
 
-    numberInput.value = parseInt( bin, 2 )
+    numberInput.value = parseInt( bin, base )
 
     for( let i = 0; i < bin.length; i++ ){
       binaryDigits[i].innerText=bin[i]
@@ -68,10 +68,18 @@ const example_base2 = (container) => {
     bd.addEventListener('click',(e)=>{
       let switchVal = bd.innerText
 
-      if( switchVal === "0" ){
-        switchVal = 1
+      if( base === 2 ){
+        if( switchVal === "0" ){
+          switchVal = 1
+        }else{
+          switchVal = 0
+        }
       }else{
-        switchVal = 0
+        switchVal = parseInt(switchVal)
+        switchVal++
+        if( switchVal >= base ){
+          switchVal = 0
+        }
       }
       const newVal = currentVal.substr(0, i) + switchVal + currentVal.substr(i+1)
       convertBinaryToDec(newVal)
