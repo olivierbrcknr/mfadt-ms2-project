@@ -38,13 +38,13 @@ const example_music = (container) => {
   const titleDOM = container.querySelector('.title')
 
   const notes = {
-    a: new Audio('../audio/a.wav'),
-    r: new Audio('../audio/r.wav'),
-    l: new Audio('../audio/l.wav'),
-    u: new Audio('../audio/u.wav'),
-    d: new Audio('../audio/d.wav'),
-    error: new Audio('../audio/error.wav'),
-    correct: new Audio('../audio/correct.wav'),
+    a: new Audio('./audio/a.wav'),
+    r: new Audio('./audio/r.wav'),
+    l: new Audio('./audio/l.wav'),
+    u: new Audio('./audio/u.wav'),
+    d: new Audio('./audio/d.wav'),
+    error: new Audio('./audio/error.wav'),
+    correct: new Audio('./audio/correct.wav'),
   }
 
   let songDB = null
@@ -57,7 +57,7 @@ const example_music = (container) => {
         songDB = JSON.parse(this.responseText)
       }
     }
-    xmlhttp.open("GET", "../data/zelda_songs.json", true)
+    xmlhttp.open("GET", "./data/zelda_songs.json", true)
     xmlhttp.send()
   }
   getData()
