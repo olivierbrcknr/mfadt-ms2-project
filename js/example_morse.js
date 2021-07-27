@@ -97,7 +97,6 @@ const example_morse = (container) => {
   }
 
   const letterToMorse = (val) => {
-    console.log( val )
 
     const letter = Object.keys(morseDB).find(key => key === val.toLowerCase())
     const code = morseDB[letter]
