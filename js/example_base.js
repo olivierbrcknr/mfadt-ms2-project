@@ -1,16 +1,16 @@
-const base_HTML = `
-  <div class="binaryVal">
-
-  </div>
-  <div class="baseValues">
-
-  </div>
-  <div class="input">
-    <input class="number" type="number" default="42" min="0" max="1024" />
-  </div>
-`
-
 const example_base = (container, base, maxDigits = 8) => {
+
+  const base_HTML = `
+    <div class="binaryVal">
+
+    </div>
+    <div class="baseValues">
+
+    </div>
+    <div class="input">
+      <input class="number" type="number" default="42" min="0" max="1024" />
+    </div>
+  `
 
   container.innerHTML = base_HTML
 

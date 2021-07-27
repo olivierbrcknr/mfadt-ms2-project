@@ -99,8 +99,13 @@ section .content {
 
 
 .interaction-placeholder {
-  max-width: 600px;
   height: 400px;
-  margin: 3rem auto;
+  margin: 3rem auto 1rem auto;
   background: #00000011;
 }
+.interactionDescription {
+  color: var(--color-font-light);
+  font-size: 15px;
+}
+
+

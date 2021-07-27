@@ -1,26 +1,26 @@
-const morse_HTML = `
-  <div class="letter">
-
-  </div>
-  <div class="morseCode">
-
-  </div>
-  <div class="input">
-    <div class="morseButton short">
-      short
-    </div>
-    <div class="morseButton long">
-      long
-    </div>
-    <div class="morseButton clearBtn">
-      clear
-    </div>
-  </div>
-`
-
 const example_morse = (container) => {
 
-  container.innerHTML = morse_HTML
+  const base_HTML = `
+    <div class="inputLetter">
+      <input class="letter" type="text" />
+    </div>
+    <div class="morseCode">
+
+    </div>
+    <div class="input">
+      <div class="morseButton short">
+        short
+      </div>
+      <div class="morseButton long">
+        long
+      </div>
+      <div class="morseButton clearBtn">
+        clear
+      </div>
+    </div>
+  `
+
+  container.innerHTML = base_HTML
 
   let prevMorseArray = []
   const morseArray = []
@@ -33,6 +33,9 @@ const example_morse = (container) => {
   let subTimer = null
 
   let morseDB = []
+
+  const maxNumberOfChar = 1
+  letterDOM.setAttribute("maxlength",maxNumberOfChar)
 
   const getData = () => {
     const xmlhttp = new XMLHttpRequest()
@@ -64,13 +67,13 @@ const example_morse = (container) => {
 
     timer = setTimeout(()=>{
       morseCode.style.transition = "opacity 2s"
-      letterDOM.style.transition = "opacity 2s"
+      letterDOM.style.transition = "color 2s"
       morseCode.classList.add('isDissolving')
       letterDOM.classList.add('isDissolving')
 
       subTimer = setTimeout(()=>{
         morseArray.splice(0, morseArray.length)
-        letterDOM.innerText = ""
+        letterDOM.value = ""
       }, 2000)
     }, 2000)
 
@@ -87,10 +90,29 @@ const example_morse = (container) => {
     const letter = Object.keys(morseDB).find(key => morseDB[key] === value)
 
     if( letter ){
-      letterDOM.innerText = letter
+      letterDOM.value = letter
     }else if( value !== "" ){
-      letterDOM.innerText = "❌"
+      letterDOM.value = "❌"
     }
+  }
+
+  const letterToMorse = (val) => {
+    console.log( val )
+
+    const letter = Object.keys(morseDB).find(key => key === val.toLowerCase())
+    const code = morseDB[letter]
+
+    morseArray.splice(0, morseArray.length)
+    if( code ){
+      for( let i = 0; i < code.length; i++ ){
+        if( code[i] === '.' ){
+          morseArray.push( 's' )
+        }else{
+          morseArray.push( 'l' )
+        }
+      }
+    }
+    updateArray()
   }
 
   btnShort.addEventListener('click',()=>{
@@ -105,7 +127,14 @@ const example_morse = (container) => {
 
   btnClear.addEventListener('click',()=>{
     morseArray.splice(0, morseArray.length)
-    letterDOM.innerText = ""
+    letterDOM.value = ""
     updateArray()
+  })
+
+  letterDOM.addEventListener('change',(e)=>{
+    letterToMorse( e.target.value )
+  })
+  letterDOM.addEventListener('keyup',(e)=>{
+    letterToMorse( e.target.value )
   })
 }

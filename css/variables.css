@@ -10,6 +10,7 @@
   --color-highlight: #00F;
 
   --color-font: var(--color-black);
+  --color-font-light:  #AAA;
   --color-bg:   var(--color-white);
 
   --max-width: 960px;
