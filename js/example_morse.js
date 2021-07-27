@@ -44,7 +44,7 @@ const example_morse = (container) => {
         morseDB = JSON.parse(this.responseText)
       }
     }
-    xmlhttp.open("GET", "./data/morse.json", true)
+    xmlhttp.open("GET", "data/morse.json", true)
     xmlhttp.send()
   }
   getData()
