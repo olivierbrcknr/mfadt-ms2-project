@@ -37,7 +37,7 @@
   opacity: 0;
 }
 #exampleMorse .morseCode .morseSignal {
-  background: var(--color-black);
+  background: var(--color-gray-med);
   height: 14px;
   width: 14px;
   margin: 0 10px;
@@ -57,10 +57,12 @@
 #exampleMorse .morseButton {
   cursor: pointer;
   width: 30%;
-  background: #CCC;
+  background: var(--color-gray-med);
   text-align: center;
   padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: var(--color-white);
 }
 #exampleMorse .morseButton:active {
-  background: #BBB;
+  background: var(--color-gray-dark);
 }

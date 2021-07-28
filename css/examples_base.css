@@ -2,6 +2,7 @@
 #exampleBinaryletters,
 .exampleBase {
   user-select: none;
+  overflow: initial;
 }
 #exampleBinaryletters .binaryVal,
 .exampleBase .binaryVal {
@@ -87,8 +88,8 @@ input[type=number]::-webkit-outer-spin-button {
   --flip-textColor: var(--color-highlight);
   --flip-textColorShadow: #3A41D3;*/
 
-  --flip-bgColor: var(--color-highlight);
-  --flip-bgColorShadow: #3A41D3;
+  --flip-bgColor: var(--color-highlight); /*#5158F6*/
+  --flip-bgColorShadow: var(--color-highlight-dark);
 
   --flip-textColor: #FFF;
   --flip-textColorShadow: #ccc;
@@ -110,6 +111,9 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 3rem;
 }
 
+.flip-clock__piece:hover {
+  box-shadow: 0px 2px 10px #5158F699;
+}
 
 .card {
   display: block;
@@ -185,6 +189,7 @@ input[type=number]::-webkit-outer-spin-button {
   animation: flipBottom 0.6s cubic-bezier(.15,.45,.28,1);
 }
 
+
 @keyframes flipTop {
   0% {
     transform: rotateX(0deg);
@@ -214,4 +219,5 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 5;
   }
 }
+
 

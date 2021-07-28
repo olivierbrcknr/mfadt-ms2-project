@@ -10,7 +10,8 @@
 }
 #exampleTrafficLight .trafficLight {
   padding: 10px;
-  background: #333;
+  background: var(--color-gray-dark);
+  border-radius: 5px;
 }
 #exampleTrafficLight .trafficLight .light {
   width: 50px;
@@ -21,8 +22,8 @@
   cursor: pointer;
 }
 #exampleTrafficLight .trafficLight .light.redLight {
-  background: #e74c3c;
-  box-shadow: 0px 0px 10px #e74c3c;
+  background: var(--color-red);
+  box-shadow: 0px 0px 10px var(--color-red);
 
   animation-name: clickMeRed;
   animation-duration: 1s;
@@ -31,11 +32,11 @@
   animation-direction: alternate;
 }
 #exampleTrafficLight .trafficLight .light.greenLight {
-  background: #2ecc71;
-  box-shadow: 0px 0px 10px #2ecc71;
+  background: var(--color-green);
+  box-shadow: 0px 0px 10px var(--color-green);
 }
 #exampleTrafficLight .trafficLight .light.isOff {
-  background: #444 !important;
+  background: var(--color-gray-med) !important;
   box-shadow: none;
 }
 #exampleTrafficLight .street {
@@ -56,13 +57,33 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+/* X-wing  */
+#exampleTrafficLight .street .car {
+  width: 150px;
+  height: 150px;
+  background: url(../img/xwing.svg);
+  background-size: cover;
+  animation-duration: 2s;
+  animation-name: xwingFyling;
+}
+
 @keyframes carDriving {
   from {top:  100%}
   to {top: calc( 0% - 100px )}
 }
+@keyframes xwingFyling {
+  from {top:  100%}
+  to {top: calc( 0% - 150px )}
+  /*0% { top: calc( 50% - (150px/2) ); }
+  49% { top: calc( 0% - 150px ); }
+  50% {top:  100%; }
+  100% { top: calc( 50% - (150px/2) ); }*/
+}
 #exampleTrafficLight .street .car.isStopped {
-
   animation-play-state: paused;
+  /*animation-fill-mode: forwards;
+  animation-iteration-count: 1;*/
 }
 
 #exampleTrafficLight .trafficLight .light.hasBeenClicked {

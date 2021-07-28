@@ -81,7 +81,7 @@ const setupExamples = () => {
   example_trafficLight(document.querySelector('#exampleTrafficLight'))
 
   example_base(document.querySelector('#exampleBase2'), 2)
-  example_base(document.querySelector('#exampleBase4'), 4, 5)
+  example_base(document.querySelector('#exampleBase4'), 4, 6)
 
   example_binaryLetters(document.querySelector('#exampleBinaryletters'))
 
@@ -133,8 +133,33 @@ const addSources = () => {
     xmlhttp.send()
   }
   getData()
+}
 
+const positionFootnotes = () => {
 
+  const startOfArticle = 0
+  const footnotes = document.querySelectorAll('sup')
+  const marginalColumn = document.querySelector('.footnotes')
+
+  footnotes.forEach( (fn) => {
+
+    const id = fn.getAttribute('data-for')
+    const fnContent = fn.innerText
+    fn.innerHTML = "<a href='#fn:"+id+"'>"+fnContent+"</a>"
+
+    const reference = marginalColumn.querySelector('#fn\\:'+id)
+
+    let topOfLink = fn.getBoundingClientRect().top + window.scrollY - startOfArticle;
+
+    fn.addEventListener('mouseenter', () => {
+      reference.classList.add("isHovering");
+    });
+    fn.addEventListener('mouseleave', () => {
+      reference.classList.remove("isHovering");
+    });
+
+    reference.style.top = topOfLink + 'px';
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -144,7 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initNav()
   updateNavOnScroll()
+  positionFootnotes()
 })
+
+window.onload = () => {
+  positionFootnotes()
+}
 
 
 window.addEventListener("scroll", (e) => {
@@ -152,6 +182,10 @@ window.addEventListener("scroll", (e) => {
   updateNavOnScroll()
 })
 
+window.addEventListener("resize", () => {
+  positionFootnotes()
+  updateNavOnScroll()
+})
 
 
 

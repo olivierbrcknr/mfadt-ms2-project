@@ -153,13 +153,14 @@ const example_music = (container) => {
 
     if( currentSong.length > 7 ){
 
+      clickPrevent = true
+
       setTimeout(()=>{
 
         currentSong = []
         notes[ "error" ].cloneNode(true).play()
 
         notesDOM.classList.add('isError')
-        clickPrevent = true
 
         setTimeout(()=>{
           notesDOM.classList.remove('isError')
