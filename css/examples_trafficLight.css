@@ -1,0 +1,60 @@
+/* Traffic Light ———————————————————————————————————— */
+#exampleTrafficLight {
+  display: flex;
+}
+#exampleTrafficLight .trafficLightContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#exampleTrafficLight .trafficLight {
+  padding: 10px;
+  background: #333;
+}
+#exampleTrafficLight .trafficLight .light {
+  width: 50px;
+  height: 50px;
+  border-radius: 1000px;
+  background: #FFF;
+  margin: 10px;
+  cursor: pointer;
+}
+#exampleTrafficLight .trafficLight .light.redLight {
+  background: #e74c3c;
+  box-shadow: 0px 0px 10px #e74c3c;
+}
+#exampleTrafficLight .trafficLight .light.greenLight {
+  background: #2ecc71;
+  box-shadow: 0px 0px 10px #2ecc71;
+}
+#exampleTrafficLight .trafficLight .light.isOff {
+  background: #444 !important;
+  box-shadow: none;
+}
+#exampleTrafficLight .street {
+  overflow: hidden;
+  flex: 1;
+}
+#exampleTrafficLight .street .car {
+
+  position: absolute;
+  left: 50%;
+  height: 100px;
+  width: 50px;
+  background: #333;
+  transform: translateX(-50%);
+
+  animation-name: carDriving;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes carDriving {
+  from {top:  100%}
+  to {top: calc( 0% - 100px )}
+}
+#exampleTrafficLight .street .car.isStopped {
+
+  animation-play-state: paused;
+}

@@ -5,10 +5,13 @@ let windowTop = 0
 let headlines = []
 let currentHeadline = 0
 let navElements = []
+let footerDOM = null
+let navDOM = null
 
 const initNav = () => {
 
-  const navDOM = document.querySelector('nav')
+  navDOM = document.querySelector('nav')
+  footerDOM = document.querySelector('footer')
 
   const navListDOM = document.createElement('ul')
 
@@ -60,6 +63,15 @@ const updateNavOnScroll = () => {
     }
 
   })
+
+  const footerTop = window.innerHeight - footerDOM.getBoundingClientRect().top
+
+  if( footerTop < 0 ){
+    navDOM.classList.remove('isHidden')
+  }else{
+    navDOM.classList.add('isHidden')
+  }
+
 }
 
 const setupExamples = () => {
@@ -76,6 +88,51 @@ const setupExamples = () => {
   example_music(document.querySelector('#exampleMusic'))
 
   example_textToDNA(document.querySelector('#exampleTextToDNA'))
+}
+
+const addSources = () => {
+
+  let sourceDB = []
+  const sourcesDOM = document.querySelector('#sourceList')
+
+  const generateSourceList = () => {
+
+    sourceDB.sort((a, b) => {
+      let fa = a.title.toLowerCase(),
+          fb = b.title.toLowerCase();
+
+      if (fa < fb) {
+          return -1;
+      }
+      if (fa > fb) {
+          return 1;
+      }
+      return 0;
+    });
+
+
+    for( let i = 0; i < sourceDB.length; i++ ){
+
+      const s = sourceDB[i]
+
+      sourcesDOM.innerHTML += `<li>
+        <b>${ s.author }</b>. “${ s.title }.” ${ s.publisher }, ${ s.year }. <a href="${ s.link }">[Link]</a>
+      </li>`
+    }
+  }
+
+  const getData = () => {
+    const xmlhttp = new XMLHttpRequest()
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        sourceDB = JSON.parse(this.responseText)
+        generateSourceList()
+      }
+    }
+    xmlhttp.open("GET", "data/sources.json", true)
+    xmlhttp.send()
+  }
+  getData()
 
 
 }
@@ -83,6 +140,7 @@ const setupExamples = () => {
 document.addEventListener("DOMContentLoaded", () => {
 
   setupExamples()
+  addSources()
 
   initNav()
   updateNavOnScroll()

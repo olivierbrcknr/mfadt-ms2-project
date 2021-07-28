@@ -130,10 +130,15 @@ const example_morse = (container) => {
     updateArray()
   })
 
-  letterDOM.addEventListener('change',(e)=>{
-    letterToMorse( e.target.value )
-  })
-  letterDOM.addEventListener('keyup',(e)=>{
-    letterToMorse( e.target.value )
+  // letterDOM.addEventListener('change',(e)=>{
+  //   letterToMorse( e.target.value )
+  // })
+  letterDOM.addEventListener('keydown',(e)=>{
+
+    const char = String.fromCharCode(e.keyCode)
+    letterToMorse( char )
+    letterDOM.value = char
+
+    // letterToMorse( e.target.value )
   })
 }

@@ -68,11 +68,15 @@ const example_binaryLetters = (container) => {
   //   currentVal = bin
   // }
 
-  letterInput.addEventListener('change',(e)=>{
-    convertLetterToBinary( e.target.value )
-  })
-  letterInput.addEventListener('keyup',(e)=>{
-    convertLetterToBinary( e.target.value )
+  // letterInput.addEventListener('change',(e)=>{
+  //   convertLetterToBinary( e.target.value )
+  // })
+  letterInput.addEventListener('keydown',(e)=>{
+
+    const char = String.fromCharCode(e.keyCode)
+    convertLetterToBinary( char )
+    letterInput.value = char
+    // convertLetterToBinary( e.target.value )
   })
 
   binaryDigits.forEach((bd,i)=>{

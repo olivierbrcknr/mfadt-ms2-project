@@ -119,46 +119,49 @@ const example_music = (container) => {
 
     checkForSongs()
 
-    if( currentSong.length > 8 ){
-      currentSong = []
-      notes[ "error" ].cloneNode(true).play()
+    notesDOM.innerHTML = ""
 
-      notesDOM.classList.add('isError')
-      clickPrevent = true
+    for( let i = 0; i < currentSong.length; i++ ){
+
+      let noteType = currentSong[i]
+      switch( noteType ){
+        case "a":
+          noteType = "A"
+          break
+        case "l":
+          noteType = "←"
+          break
+        case "r":
+          noteType = "→"
+          break
+        case "u":
+          noteType = "↑"
+          break
+        case "d":
+          noteType = "↓"
+          break
+      }
+
+      notesDOM.innerHTML += "<div class='note "+currentSong[i]+"'>"+noteType+"</div>"
+    }
+
+    if( currentSong.length > 7 ){
 
       setTimeout(()=>{
-        notesDOM.classList.remove('isError')
-        notesDOM.innerHTML = ""
-        clickPrevent = false
-      }, 500)
 
-    }else{
+        currentSong = []
+        notes[ "error" ].cloneNode(true).play()
 
-      notesDOM.innerHTML = ""
+        notesDOM.classList.add('isError')
+        clickPrevent = true
 
-      for( let i = 0; i < currentSong.length; i++ ){
+        setTimeout(()=>{
+          notesDOM.classList.remove('isError')
+          notesDOM.innerHTML = ""
+          clickPrevent = false
+        }, 500)
+      }, 300)
 
-        let noteType = currentSong[i]
-        switch( noteType ){
-          case "a":
-            noteType = "A"
-            break
-          case "l":
-            noteType = "←"
-            break
-          case "r":
-            noteType = "→"
-            break
-          case "u":
-            noteType = "↑"
-            break
-          case "d":
-            noteType = "↓"
-            break
-        }
-
-        notesDOM.innerHTML += "<div class='note "+currentSong[i]+"'>"+noteType+"</div>"
-      }
     }
   }
 

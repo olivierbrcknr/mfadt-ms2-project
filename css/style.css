@@ -14,17 +14,34 @@ html, body {
 }
 
 a {
-  color: inherit;
+  color: var(--color-highlight);
 }
 a:hover {
   text-decoration: none;
 }
 
+b {
+  font-weight: 600;
+}
+
+/* Navigation */
+
 nav {
   position: fixed;
   top: 0;
   left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  transition: opacity 0.5s;
 }
+nav.isHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 nav li {
   margin: 0;
   padding: 0;
@@ -33,18 +50,51 @@ nav li.isCurrent {
   font-weight: bold;
 }
 nav li.isPast {
-  opacity: 0.5;
+  opacity: 0.3;
 }
 nav li a {
-  display: block;
+  display: inline-block;
   font-size: 13px;
-}
-nav li.H2 {
+  padding: 4px 0;
 
+  color: transparent;
+  transition: color 0.3s;
+  text-decoration: none;
 }
-nav li.H3 a {
-  padding-left: 10px;
+nav:hover li a {
+  color: var(--color-font);
 }
+nav li:hover {
+  opacity: 1;
+}
+nav li a:hover {
+  color: var(--color-highlight);
+}
+nav li a:hover:before  {
+  background: var(--color-highlight);
+}
+nav li a:before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  vertical-align: 3px;
+  background: var(--color-font-light);
+  transition: background 0.3s;
+  margin-right: 3px;
+}
+nav li.isCurrent a:before {
+  background: var(--color-highlight);
+}
+
+nav li.H2 {
+  text-transform: uppercase;
+}
+nav li.H3 a:before {
+  width: 20px;
+}
+
+/* ————————————— */
 
 h1 {
   text-align: center;
@@ -89,6 +139,17 @@ footer {
 footer {
   background: #fafafa;
   font-size: 13px;
+}
+footer a {
+  color: inherit;
+}
+
+#sourceList {
+  list-style: decimal-leading-zero;
+  padding-left: 2.5em;
+}
+#sourceList li::marker {
+  font-family: var(--font-family-mono);
 }
 
 section .content {

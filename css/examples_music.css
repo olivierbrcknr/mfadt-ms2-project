@@ -1,0 +1,113 @@
+/* music ———————————————————————————————————— */
+#exampleMusic {
+  user-select: none;
+}
+#exampleMusic .song {
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+#exampleMusic .song .title {
+  width: 300px;
+  background: var(--color-white);
+  padding: 0.5rem;
+  height: 50px;
+  margin: 0 0.5rem;
+}
+#exampleMusic .song .clearSong,
+#exampleMusic .song .play {
+  padding: 0.5rem;
+  height: 50px;
+  background: #bbb;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+#exampleMusic .song .clearSong:active,
+#exampleMusic .song .play:active {
+  background: #aaa;
+}
+#exampleMusic .notes {
+  height: 180px;
+  padding: 20px 0;
+  display: flex;
+  align-items: flex-end;
+  transition: opacity 0.5s;
+}
+#exampleMusic .notes.isError {
+  opacity: 0;
+}
+#exampleMusic .notes .note {
+  --noteSize: 40px;
+  width: var(--noteSize);
+  height: var(--noteSize);
+  border-radius: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1c40f;
+
+  margin: 0 calc( 12.5% / 2 - var(--noteSize)/2 );
+}
+#exampleMusic .notes .note.a {
+  margin-bottom: 20px;
+  background: #3498db;
+}
+#exampleMusic .notes .note.l {
+  margin-bottom: 80px;
+}
+#exampleMusic .notes .note.r {
+  margin-bottom: 60px;
+}
+#exampleMusic .notes .note.u {
+  margin-bottom: 100px;
+}
+#exampleMusic .notes .note.d {
+  margin-bottom: 40px;
+}
+
+#exampleMusic .noteLines {
+  height: 180px;
+  padding: 20px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  opacity: 0.5;
+}
+#exampleMusic .noteLines .line {
+  width: 100%;
+  height: 1px;
+  background: var(--color-black);
+}
+
+#exampleMusic .buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+}
+#exampleMusic .noteBtn {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f1c40f;
+  cursor: pointer;
+  border-radius: 1000px;
+}
+#exampleMusic .noteBtn:active {
+  background: #f39c12;
+}
+#exampleMusic .noteBtn.a {
+  background: #3498db;
+}
+#exampleMusic .noteBtn.a:active {
+  background: #2980b9;
+}
+

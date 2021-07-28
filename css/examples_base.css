@@ -1,0 +1,51 @@
+/* Base ———————————————————————————————————————— */
+#exampleBinaryletters,
+.exampleBase {
+  user-select: none;
+}
+#exampleBinaryletters .binaryVal,
+.exampleBase .binaryVal {
+  display: flex;
+  height: 30%;
+  align-items: center;
+}
+#exampleBinaryletters .binaryVal .binaryDigit,
+.exampleBase .binaryVal .binaryDigit {
+  font-size: 3rem;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+.exampleBase .baseValues {
+  display: flex;
+  height: 20%;
+}
+.exampleBase .baseValues .baseVal {
+  flex: 1;
+  text-align: center;
+}
+#exampleBinaryletters .input,
+.exampleBase .input {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#exampleBinaryletters .input .letter,
+.exampleBase .input .number {
+  outline: 0;
+  appearance:  none;
+  border: none;
+  color: var(--color-font);
+  font-family: var(--font-family);
+  padding: 0.2em 0.5em;
+  width: 50%;
+  min-width: 100px;
+  font-size: 3rem;
+  /*margin-left: 1rem;*/
+  border-radius: 0;
+  text-align: right;
+}
+#exampleBinaryletters .input .letter {
+  text-align: left;
+}
