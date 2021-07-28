@@ -8,9 +8,10 @@
   display: flex;
   height: 30%;
   align-items: center;
+  justify-content: space-evenly;
 }
-#exampleBinaryletters .binaryVal .binaryDigit,
-.exampleBase .binaryVal .binaryDigit {
+#exampleBinaryletters .binaryVal .binaryDigit {
+/*.exampleBase .binaryVal .binaryDigit {*/
   font-size: 3rem;
   flex: 1;
   text-align: center;
@@ -19,10 +20,14 @@
 .exampleBase .baseValues {
   display: flex;
   height: 20%;
+  justify-content: space-evenly;
 }
 .exampleBase .baseValues .baseVal {
-  flex: 1;
+  /*flex: 1;*/
   text-align: center;
+  width: 60px;
+  font-family: var(--font-family-mono);
+  color: var(--color-font-light);
 }
 #exampleBinaryletters .input,
 .exampleBase .input {
@@ -37,7 +42,7 @@
   appearance:  none;
   border: none;
   color: var(--color-font);
-  font-family: var(--font-family);
+  font-family: var(--font-family-mono);
   padding: 0.2em 0.5em;
   width: 50%;
   min-width: 100px;
@@ -45,7 +50,168 @@
   /*margin-left: 1rem;*/
   border-radius: 0;
   text-align: right;
+
+
+  border: solid 2px var(--color-bg-light);
+  border-radius: 10px;
+  padding-right: 0;
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+  opacity: 1;
+  cursor: pointer;
+  width: 20px;
+
+}
+
 #exampleBinaryletters .input .letter {
   text-align: left;
 }
+
+
+/* https://codepen.io/shshaw/pen/vKzoLL */
+
+.flip-clock {
+  text-align: center;
+  perspective: 800px;
+  /*margin: 20px auto;*/
+
+  --half-height: 0.72em;
+  --border-radius: 0.15em;
+
+
+  /*--flip-bgColor: #FFF;
+  --flip-bgColorShadow: #f2f2f2;
+
+  --flip-textColor: var(--color-highlight);
+  --flip-textColorShadow: #3A41D3;*/
+
+  --flip-bgColor: var(--color-highlight);
+  --flip-bgColorShadow: #3A41D3;
+
+  --flip-textColor: #FFF;
+  --flip-textColorShadow: #ccc;
+
+}
+.flip-clock *,
+.flip-clock *:before,
+.flip-clock *:after {
+  box-sizing: border-box;
+}
+
+.flip-clock__piece {
+  /*display: inline-block;*/
+  display: block;
+  /*margin: 0 5px;*/
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 2px 6px #0002;
+  font-size: 3rem;
+}
+
+
+.card {
+  display: block;
+  position: relative;
+  padding-bottom: var(--half-height);
+  font-family: var(--font-family-mono);
+  font-size: 3rem;
+  line-height: 0.95;
+}
+
+.card__top,
+.card__bottom,
+.card__back::before,
+.card__back::after {
+  display: block;
+  height: var(--half-height);
+  color: var(--flip-textColorShadow);/* #ccc;*/
+  background: var(--flip-bgColorShadow);/* #222;*/
+  padding: 0.25em 0.25em;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  backface-visiblity: hidden;
+  transform-style: preserve-3d;
+  /*width: 1em;*/
+  transform: translateZ(0);
+}
+
+.card__bottom {
+  color: var(--flip-textColor);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-top: solid 1px #00000033;
+  background: var(--flip-bgColor);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.card__bottom::after {
+  display: block;
+  margin-top: calc( var(--half-height) * -1 );
+}
+
+.card__back::before,
+.card__bottom::after {
+  content: attr(data-value);
+}
+
+.card__back {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0%;
+  pointer-events: none;
+}
+
+.card__back::before {
+  box-sizing: border-box;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.flip .card__back::before {
+  animation: flipTop 0.3s cubic-bezier(.37,.01,.94,.35);
+  animation-fill-mode: both;
+  transform-origin: center bottom;
+}
+
+.flip .card__back .card__bottom {
+  transform-origin: center top;
+  animation-fill-mode: both;
+  animation: flipBottom 0.6s cubic-bezier(.15,.45,.28,1);
+}
+
+@keyframes flipTop {
+  0% {
+    transform: rotateX(0deg);
+    z-index: 2;
+  }
+  0%, 99% {
+    opacity: 0.99;
+  }
+  100% {
+    transform: rotateX(-90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flipBottom {
+  0%, 50% {
+    z-index: -1;
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  51% {
+    opacity: 0.99;
+  }
+  100% {
+    opacity: 0.99;
+    transform: rotateX(0deg);
+    z-index: 5;
+  }
+}
+

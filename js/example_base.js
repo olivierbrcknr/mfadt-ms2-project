@@ -1,7 +1,7 @@
 const example_base = (container, base, maxDigits = 8) => {
 
   const base_HTML = `
-    <div class="binaryVal">
+    <div class="binaryVal flip-clock">
 
     </div>
     <div class="baseValues">
@@ -26,10 +26,58 @@ const example_base = (container, base, maxDigits = 8) => {
   // setup HTML
   for( let i = maxDigits; i >= 0; i--){
     baseValues.innerHTML += "<div class='baseVal'>"+Math.pow( base, i )+"</div>"
-    binaryDisplay.innerHTML += "<div class='binaryDigit'>0</div>"
+
+    // binaryDisplay.innerHTML += "<div class='binaryDigit'>0</div>"
+
+    binaryDisplay.innerHTML += `
+      <span class="flip-clock__piece binaryDigit" data-currentValue="0">
+        <b class="flip-clock__card card">
+          <b class="card__top">0</b>
+          <b class="card__bottom" data-value="0"></b>
+          <b class="card__back" data-value="0">
+            <b class="card__bottom" data-value="0"></b>
+          </b>
+        </b>
+      </span>
+    `
   }
 
   const binaryDigits = container.querySelectorAll('.binaryDigit')
+
+  const updateFlipCard = ( index, newVal ) => {
+
+    const card = binaryDigits[index]
+    const currentVal = parseInt( card.getAttribute( "data-currentValue" ) )
+
+    if( currentVal !== newVal ){
+
+      const top = card.querySelector('.card__top')
+      const bottom = card.querySelector('.card__bottom')
+      const back = card.querySelector('.card__back')
+      const backBottom = card.querySelector('.card__back .card__bottom')
+
+      back.setAttribute('data-value', currentVal);
+      bottom.setAttribute('data-value', currentVal);
+
+      // card.querySelector('card__bottom')
+
+      // const newVal = currentVal === 0 ? 1 : 0
+      top.innerText = newVal;
+      backBottom.setAttribute('data-value', newVal);
+
+      card.classList.remove('flip');
+      void card.offsetWidth;
+      // setTimeout(()=>{
+        card.classList.add('flip');
+      // },10)
+
+      card.setAttribute( "data-currentValue", newVal )
+
+    }
+
+  }
+
+
 
   const convertDecToBinary = (dec) => {
 
@@ -42,7 +90,8 @@ const example_base = (container, base, maxDigits = 8) => {
 
     currentVal = binaryVal
     for( let i = 0; i < binaryVal.length; i++ ){
-      binaryDigits[i].innerText=binaryVal[i]
+      // binaryDigits[i].innerText=binaryVal[i]
+      updateFlipCard( i, parseInt( binaryVal[i] ) )
     }
   }
 
@@ -51,7 +100,8 @@ const example_base = (container, base, maxDigits = 8) => {
     numberInput.value = parseInt( bin, base )
 
     for( let i = 0; i < bin.length; i++ ){
-      binaryDigits[i].innerText=bin[i]
+      // binaryDigits[i].innerText=bin[i]
+      updateFlipCard( i, parseInt( bin[i] ) )
     }
 
     currentVal = bin
@@ -66,22 +116,23 @@ const example_base = (container, base, maxDigits = 8) => {
 
   binaryDigits.forEach((bd,i)=>{
     bd.addEventListener('click',(e)=>{
-      let switchVal = bd.innerText
+
+      let switchVal = parseInt( bd.getAttribute( "data-currentValue" ) )
 
       if( base === 2 ){
-        if( switchVal === "0" ){
+        if( switchVal === 0 ){
           switchVal = 1
         }else{
           switchVal = 0
         }
       }else{
-        switchVal = parseInt(switchVal)
         switchVal++
         if( switchVal >= base ){
           switchVal = 0
         }
       }
       const newVal = currentVal.substr(0, i) + switchVal + currentVal.substr(i+1)
+
       convertBinaryToDec(newVal)
     })
   })

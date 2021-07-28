@@ -48,11 +48,19 @@
   align-items: center;
   background: #f1c40f;
 
+  transition: box-shadow 0.2s;
+
   margin: 0 calc( 12.5% / 2 - var(--noteSize)/2 );
+}
+#exampleMusic .notes .note.isPlayed {
+  box-shadow: 0 0 20px #f1c40f;
 }
 #exampleMusic .notes .note.a {
   margin-bottom: 20px;
   background: #3498db;
+}
+#exampleMusic .notes .note.a.isPlayed {
+  box-shadow: 0 0 20px #3498db;
 }
 #exampleMusic .notes .note.l {
   margin-bottom: 80px;

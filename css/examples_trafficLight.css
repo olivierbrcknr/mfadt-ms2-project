@@ -23,6 +23,12 @@
 #exampleTrafficLight .trafficLight .light.redLight {
   background: #e74c3c;
   box-shadow: 0px 0px 10px #e74c3c;
+
+  animation-name: clickMeRed;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 }
 #exampleTrafficLight .trafficLight .light.greenLight {
   background: #2ecc71;
@@ -58,3 +64,18 @@
 
   animation-play-state: paused;
 }
+
+#exampleTrafficLight .trafficLight .light.hasBeenClicked {
+  animation-name: none;
+}
+
+
+@keyframes clickMeRed {
+  from {box-shadow: 0px 0px 0px 0px #fff3; }
+  to    {box-shadow: 0px 0px 0px 10px #fff3;}
+}
+
+
+
+
+

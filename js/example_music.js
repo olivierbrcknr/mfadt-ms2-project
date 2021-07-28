@@ -11,8 +11,6 @@ const example_music = (container) => {
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
     </div>
     <div class="notes">
 
@@ -64,14 +62,22 @@ const example_music = (container) => {
 
   const playSong = (arr,callback=()=>{}) => {
 
+    const notesDOM = container.querySelectorAll(".note")
+
     for( let i = 0; i < arr.length; i++ ){
 
       setTimeout(()=>{
         notes[ arr[i] ].cloneNode(true).play()
+        notesDOM[ i ].classList.add('isPlayed')
 
         if( i === arr.length-1 ){
 
           setTimeout(()=>{
+
+            notesDOM.forEach((n)=>{
+              n.classList.remove('isPlayed')
+            })
+
             callback()
           }, 500 )
         }
