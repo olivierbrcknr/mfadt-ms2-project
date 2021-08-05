@@ -246,7 +246,8 @@ header .inner {
 }
 
 footer {
-  background: #fafafa;
+  background: var(--interaction-background);
+  color: var(--color-font-footer);
   font-size: 13px;
 }
 footer .footerWrapper {
@@ -279,6 +280,14 @@ footer a {
 #toggleGrid {
   cursor: pointer;
   user-select: none;
+  text-decoration: underline;
+}
+#toggleGrid:hover {
+  text-decoration: none;
+}
+
+#aboutList li {
+  margin-bottom: 0.4em;
 }
 
 section .content {
@@ -344,7 +353,27 @@ sup a {
 }
 
 
+
+@media (prefers-color-scheme: dark) {
+  .sectionHeaderImg {
+    filter: invert(1) hue-rotate(180deg) saturate(2.2);
+    mix-blend-mode: screen;
+  }
+  nav {
+    mix-blend-mode: screen;
+  }
+  code {
+    background: var(--interaction-background);
+  }
+}
+
 @media only screen and (max-width: 959px) {
+
+  .sectionHeaderImg {
+    max-width: initial;
+    padding: 0;
+    margin: 1rem auto;
+  }
 
   #gridDisplay {
     padding: 0 1rem;
@@ -368,6 +397,10 @@ sup a {
     left: initial;
     right: 1rem;
   }
+
+  nav {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 719px) {
@@ -381,6 +414,12 @@ sup a {
     padding: 0;
   }
 
+  section,
+  footer,
+  .footnotes {
+    padding: 2rem 1rem;
+  }
+
   .footnotes {
     position: relative;
     top: initial;
@@ -388,17 +427,18 @@ sup a {
     left: 0;
     width: auto;
   }
+  .footnotes ol {
+    padding-left: 1rem;
+  }
   .footnotes ol li {
     top: auto !important;
   }
 
-  section,
-  .footnotes {
-    padding: 2rem 1rem;
-  }
-
   footer .footerWrapper {
     flex-direction: column;
+  }
+  footer .content {
+    margin-bottom: 2rem;
   }
 
   #gridDisplay .textColumn {

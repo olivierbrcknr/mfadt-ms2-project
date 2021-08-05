@@ -100,3 +100,9 @@
 
 
 
+@media (prefers-color-scheme: dark) {
+  .car {
+    filter: invert(1) hue-rotate(180deg) saturate(2.2);
+    mix-blend-mode: screen;
+  }
+}
