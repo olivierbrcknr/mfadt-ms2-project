@@ -2,7 +2,7 @@
 #exampleBinaryletters,
 .exampleBase {
   user-select: none;
-  overflow: initial;
+  /*overflow: initial;*/
 }
 #exampleBinaryletters .binaryVal,
 .exampleBase .binaryVal {

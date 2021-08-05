@@ -162,6 +162,16 @@ const positionFootnotes = () => {
   });
 }
 
+const initToggleGridDisplay = () => {
+
+  const btn = document.querySelector('#toggleGrid')
+  const grid = document.querySelector('#gridDisplay')
+  btn.addEventListener('click',()=>{
+    grid.classList.toggle('hide')
+  })
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   setupExamples()
@@ -170,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav()
   updateNavOnScroll()
   positionFootnotes()
+  initToggleGridDisplay()
 })
 
 window.onload = () => {

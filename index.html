@@ -5,12 +5,12 @@
 	<title>How is digital data stored on DNA?</title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex">
 
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,600;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/variables.css">
-  <link rel="stylesheet" type="text/css" href="css/grid.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
   <link rel="stylesheet" type="text/css" href="css/examples_base.css">
@@ -26,7 +26,6 @@
   <script type="text/javascript" src="js/example_textToDNA.js"></script>
   <script type="text/javascript" src="js/example_trafficLight.js"></script>
 
-
 	<script type="text/javascript" src="js/default.js"></script>
 
 </head>
@@ -36,7 +35,7 @@
 
   <header>
 
-    <div class="row">
+    <div class="inner">
       <h1>
         How is digital data stored on DNA?
       </h1>
@@ -146,9 +145,10 @@
 
   <section> <!-- style="background: #E9EAFD;" -->
 
-    <img src="img/computer.svg" class="sectionHeaderImg" />
-
     <div class="content">
+
+      <img src="img/computer.svg" class="sectionHeaderImg" />
+
       <h2>
         Binary Code
       </h2>
@@ -390,21 +390,19 @@
 
   </section>
 
-
   <section class="footnotes">
-    <div class="content">
       <ol>
         <li id="fn:1">
           The legend of Zelda Ocarina of Time and Majora' Mask are games from the N64 system. They were released in 1998 (OoT) and 2000 (MM).
         </li>
       </ol>
-    </div>
   </section>
 
   <footer>
 
-    <div class="row">
-      <div class="d50">
+    <div class="footerWrapper">
+
+      <div class="content">
         <h5>Sources</h5>
 
         <ol id="sourceList">
@@ -412,17 +410,20 @@
         </ol>
       </div>
 
-      <div class="d25">
+      <div class="additionalContent">
         <h5>About</h5>
 
         <p>
           This project is a result of the MFA Design and Technology Major Studio 2 class at Parsons School of Design, The New School, led by Justin Bakse.
         </p>
-      </div>
 
-      <div class="d25">
         <h5>Other</h5>
         <ul>
+          <li>
+            <a id="toggleGrid">
+              Toggle grid
+            </a>
+          </li>
           <li>
             <a href="https://github.com/olivierbrcknr/mfadt-ms2-project">GitHub Repository</a>
           </li>
@@ -432,14 +433,21 @@
         </ul>
 
       </div>
-
     </div>
-
   </footer>
 
   <nav>
     <!-- js -->
   </nav>
+
+  <div id="gridDisplay">
+    <div class="textColumn gridColumn">
+    </div>
+    <div class="marginalColumn gridColumn">
+    </div>
+    <div class="maxWidthColumn gridColumn">
+    </div>
+  </div>
 
 </div>
 

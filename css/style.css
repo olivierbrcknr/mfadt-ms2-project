@@ -3,6 +3,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: var(--color-white);
+  background: var(--color-highlight);
+}
+
 html, body {
   font-family: var(--font-family);
 
@@ -67,6 +72,50 @@ th {
   font-weight: 600;
 }
 
+/* Grid Display */
+
+#gridDisplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10000000;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+}
+#gridDisplay.hide {
+  display: none;
+}
+#gridDisplay .gridColumn {
+  border-left: solid 1px var(--color-highlight);
+  border-right: solid 1px var(--color-highlight);
+  height: 100%;
+}
+
+#gridDisplay .textColumn {
+  max-width: var(--max-width-text);
+  margin: 0 auto;
+  transform: translateX( calc( var(--marginal-column-width) / -2 + var(--marginal-column-margin) / -2 ) );
+}
+#gridDisplay .marginalColumn {
+  top: 0;
+  position: absolute;
+  left: calc( 50vw + var(--max-width) / 2 - var(--marginal-column-width) );
+  width: var(--marginal-column-width);
+}
+#gridDisplay .maxWidthColumn {
+  top: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--max-width);
+  border-left: solid 1px var(--color-red);
+  border-right: solid 1px var(--color-red);
+}
+
+
 /* Navigation */
 
 nav {
@@ -83,6 +132,7 @@ nav {
   /*max-width: calc( 50vw - var(--max-width) / 2 );*/
 
   pointer-events: none;
+  mix-blend-mode: multiply;
 }
 nav.isHidden {
   opacity: 0;
@@ -150,7 +200,6 @@ nav li.H3 a:before {
 h1 {
   font-size: 3rem;
   font-weight: 500;
-  text-align: right;
 }
 
 h2 {
@@ -191,11 +240,30 @@ header {
   background: var(--color-highlight);
   color: var(--color-white);
 }
+header .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
 
 footer {
   background: #fafafa;
   font-size: 13px;
 }
+footer .footerWrapper {
+  display: flex;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+footer .content {
+  max-width: var(--max-width-text);
+  flex-shrink: 0;
+}
+footer .additionalContent {
+  max-width: var(--marginal-column-width);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
 footer a {
   color: inherit;
 }
@@ -208,15 +276,22 @@ footer a {
   font-family: var(--font-family-mono);
 }
 
+#toggleGrid {
+  cursor: pointer;
+  user-select: none;
+}
+
 section .content {
-  max-width: var(--max-width-text);
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding-right: calc( var(--marginal-column-width) + var(--marginal-column-margin) );
 }
 
 .sectionHeaderImg {
   display: block;
-  max-width: 640px;
-  margin: 1rem auto;
+  width: 100%;
+  max-width: var(--max-width-text);
+  margin: 1rem 0;
 }
 
 
@@ -233,10 +308,6 @@ section .content {
 }
 
 /* Footnotes  */
-
-section {
-  padding-right: var(--marginal-column-width);
-}
 
 .footnotes {
   position: absolute;
@@ -255,7 +326,7 @@ sup a {
 }
 .footnotes ol {
   list-style: decimal;
-  padding-left: 1.5em;
+  /*padding-left: 1.5em;*/
 }
 .footnotes ol li {
   padding-top: 9px;
@@ -270,4 +341,74 @@ sup a {
 .footnotes ol li:hover,
 .footnotes ol li.isHovering {
   color: var(--color-font);
+}
+
+
+@media only screen and (max-width: 959px) {
+
+  #gridDisplay {
+    padding: 0 1rem;
+  }
+
+  #gridDisplay .textColumn {
+    margin: 0;
+    transform: none;
+  }
+  #gridDisplay .marginalColumn {
+    left: initial;
+    right: 1rem;
+  }
+  #gridDisplay .maxWidthColumn {
+    transform: none;
+    left: initial;
+    width: calc( 100% - 2rem );
+  }
+
+  .footnotes {
+    left: initial;
+    right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 719px) {
+  /* Change values over here */
+
+  section .content,
+  footer .content,
+  footer .additionalContent,
+  .sectionHeaderImg {
+    max-width: initial;
+    padding: 0;
+  }
+
+  .footnotes {
+    position: relative;
+    top: initial;
+    height: auto;
+    left: 0;
+    width: auto;
+  }
+  .footnotes ol li {
+    top: auto !important;
+  }
+
+  section,
+  .footnotes {
+    padding: 2rem 1rem;
+  }
+
+  footer .footerWrapper {
+    flex-direction: column;
+  }
+
+  #gridDisplay .textColumn {
+    display: none;
+  }
+  #gridDisplay .marginalColumn {
+    display: none;
+  }
+  #gridDisplay .maxWidthColumn {
+    width: calc( 100vw - 2rem );
+  }
+
 }

@@ -26,9 +26,12 @@
   --color-bg-light: #DCDDEB;
   --interaction-background: #F5F5FA;
 
-  --max-width: 960px;
-  --max-width-text: 640px;
+
   --marginal-column-width: 220px;
+  --marginal-column-margin: 2rem;
+  --max-width-text: 640px;
+
+  --max-width: calc( var(--marginal-column-width) + var(--marginal-column-margin) + var(--max-width-text) );
 
 }
 
@@ -40,3 +43,13 @@
     --color-highlight:   #f0f;
   }
 }*/
+
+
+@media only screen and (max-width: 959px) {
+
+  :root {
+    --marginal-column-width: calc( 30% - var(--marginal-column-margin) );
+    --max-width-text: 70%;
+    --max-width: 100%;
+  }
+}
