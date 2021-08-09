@@ -52,9 +52,24 @@
     <div class="content">
       <h2>Introduction</h2>
 
-      <h3>
-        Why would one want to store data on DNA?
-      </h3>
+      <p>
+        We all know of it, DNA 🧬, the source code of life. Every one of us has it in us. All the plants and animals as well. It has existed since the beginning of life! It defines everything organic that we see by the data that is stored in it.
+      </p>
+      <p>
+        Digital data also defines everything we see and experience on our computers. So why not merge these two worlds? What if we could store digital data onto the biological storage unit DNA? We can! Just in 2019, all 16GB of Wikipedia has been stored on synthetic DNA.<sup data-for="0">0</sup>
+      </p>
+      <p>
+        But why would one want to store data on DNA? Why not keep it on the hard drives we already have? These are good questions. Hard drives last for a reasonably long time, about 7 to 10 years. If we want to archive data for the future, that is, however, almost nothing. The DNA found in Ötzi<sup data-for="1">1</sup> is still readable and gave us a lot of information about the past, and he lived around 5,000 years ago! DNA is very durable and does not need any maintenance costs. Comparing that with current storage media that often need to be connected to a power supply, keeping the data for a long time is significant.
+      </p>
+      <p>
+        Another aspect is the amount of data that we can store on DNA. Each DNA helix contains the whole information that is needed to create your body. This information is roughly <code>725 MB</code> of data<sup data-for="2">2</sup>—Think of how each cell in our body entails a complete DNA helix and how small a cell is. It is estimated that one gram of DNA can hold up to <code>215 Petabytes</code>,<sup data-for="3">3</sup> which are around <code>215,000,000 GB</code> and less than two cubic centimeters or two milliliters. All this data would fit on a teaspoon.
+      </p>
+      <p>
+        So, storing data on DNA is a very efficient way of keeping a lot of information for a very long time. But how does this work? How does data get saved on DNA?
+      </p>
+      <p>
+        On this little website, we will understand the concept of how digital data is getting stored on DNA. Step by step, we will go through small examples of code and store types. Each topic has an interactive visualization, so don’t hesitate to play around with them!
+      </p>
     </div>
 
   </section>
@@ -72,15 +87,24 @@
       </h3>
 
       <p>
-        To first understand how digital data is stored and how DNA works, we need to understand code.
+        To first understand how digital data is stored and how DNA works, we need to understand code in general. Here is a description of “code” from a dictionary:
       </p>
 
       <blockquote>
-        Code is a system of words, letters, figures, or symbols used to represent others, especially for the purposes of secrecy. — Oxford Languages
+        Code is a system of words, letters, figures, or symbols used to represent others, especially for the purposes of secrecy. <span class="quoteSource">— Oxford Languages</span>
       </blockquote>
 
       <p>
-        What does this mean? Code basically is anything that needs to be known by the spectator so it can be understood. A language for example is a form of code. One needs to know the language to be able to understand it. Let's take french for example. This language is based on the Latin alphabet. So first of all one needs to understand the little pictograms that make up a letter. It takes us humans a while to understand what each letter stands for. So to understand that an A is an "A", we first need to understand this code—the key. Understanding that, we then are able to take chains of these characters to form words, then sentences, then paragraphs and texts. But we also need to understand grammar and vocabulary to understand the language. And this is only one language! The Chinese alphabet looks completely different and we need to start understanding the characters again.
+        What does this mean? Code is anything that needs to be known by the spectator so it can be understood. A language, for example, is a form of code. One needs to know the language to be able to understand it. Let's take french for example. This language is based on the Latin alphabet. So first of all, one needs to understand the tiny pictograms that we know as a letter. It takes us humans a while to understand what each character stands for. So to realize that an A is an "A,” we first need to understand this code—the key.
+      </p>
+
+      <img src="" alt="Text description">
+
+      <p>
+        Having learned that, we then can take chains of these characters to form words, then sentences, then paragraphs, and texts. Each is a code that builds upon the other. But we also need to understand grammar and vocabulary to understand the language. And that is only one language! The Chinese alphabet looks completely different, and we need to start understanding the characters again.
+      </p>
+      <p>
+        Ok, this has been quite an elaborate example of code. Let's take a couple of steps back and look at other models
       </p>
 
     </div>
@@ -92,7 +116,11 @@
       </h3>
 
       <p>
-        Ok, this has been a quite elaborate example of code. Let's take a couple of steps back. Let's think of a form of code that only requires two values. On or off. A classic example for this one would be a traffic light. Green means go, while red means stop. A simple code that we learned early on to know when it's safe to cross a street.
+        Let's think of a form of code that only requires two values. <i>On</i> or <i>off</i>. A classic example for this one would be a traffic light. <i>Green</i> means go, while <i>red</i> means stop. A simple code that we learned early on to know when it's safe to cross a street.
+      </p>
+
+      <p>
+        Try it out and let the X-Wing<sup data-for="4">4</sup> fly or force it to stop. Click on the traffic lights 🚦 to change the sign.
       </p>
 
       <div id="exampleTrafficLight" class="interaction-placeholder">
@@ -101,6 +129,13 @@
       <div class="interactionDescription">
         Click on on the traffic lights to stop the car or let it drive.
       </div>
+
+      <p>
+        Great! A simple code with only two values! That was easy. But the principles mentioned above apply. We need to understand that “red” means “stop” and “green” means “go.” If we don’t know this code, it is hard to read the lights.
+      </p>
+      <p>
+        Can we create even more complex information just using two values? Of course! And I am sure you have heard of the following example as well.
+      </p>
 
     </div>
 
@@ -111,7 +146,21 @@
       </h3>
 
       <p>
-        Great! A simple code with only two values! But can we create even more complex information just using two values?
+        Morse code has been an essential method of communication. It has been used to send messages over long distances. The benefit of this code is that one does not need multiple inputs. We can simply use a lamp or something that generates a sound to create two values: on and off. On represented by “sound” or “light on,” off represented by “light off” or “no sound.”
+      </p>
+
+      <p>
+        We can have two values of the “on” variants: long and short. One short is read as an “E,” one long as a “T.” Combining short and long variations can create all the letters and numbers of the basic Arabic alphabet. If you simply add pauses between the characters, you can create whole sentences, just like writing a text with pen and paper. The word “data” would then look like this:
+      </p>
+
+      <img src="" alt="-.. .- - .-">
+
+      <p>
+        This simplicity allows communication over long distances, e.g., when ships needed to communicate with the harbor or send messages over very long distances as signals before the telephone.<sup data-for="5">5</sup>
+      </p>
+
+      <p>
+        But enough of reading about it, let’s try it out! Try to write your name in the morse code below!<sup data-for="6">6</sup>
       </p>
 
       <div id="exampleMorse" class="interaction-placeholder">
@@ -120,6 +169,10 @@
       <div class="interactionDescription">
         Click on "long" or "short" to create a morse signal. If you found a matching letter, it will be shown above. If it's not matching, a red cross will appear. Click "clear" or wait for 4 seconds to try another one.
       </div>
+
+      <p>
+        Phew, great! Isn’t it incredible what one can already store with these few elements? What might be possible if we have more building parts to our system? What codes would then be possible? Let’s have a look at the following sections to find out.
+      </p>
 
     </div>
     <div class="content">
@@ -131,15 +184,25 @@
       </h3>
 
       <p>
-        With five elements, one already can create a lot more things. For example one could create music. The game “The Legend of Zelda Ocarina of Time” and “The Legend of Zelda Majora's Mask"<sup data-for="1">1</sup> use a couple of songs made only with five notes. Try to play some of them!
+        Similar to texts, music is a way of coding information. By chaining different notes together, we can create music that is happy, sad, angry, etc. We always use the same components but, to keep it very simple, we only adjust the timing and order.
       </p>
+
+      <p>
+        With five notes, one can already create a couple of different songs! The game “The Legend of Zelda Ocarina of Time” and “The Legend of Zelda Majora's Mask"<sup data-for="7">7</sup> do that. Try to play some of them!
+      </p>
+
+      <div>SONG SPOILER?!</div>
 
       <div id="exampleMusic" class="interaction-placeholder">
         <!-- javaScript -->
       </div>
       <div class="interactionDescription">
-        Press the note buttons to create a song. You can create up to 8 notes and play it. Experiment a bit to see how many different songs you can create just using five notes! You might even find a special track 🔎.
+        Press the note buttons to create a song. You can make up to 8 notes and play it. Experiment a bit to see how many different songs you can create just using five notes! You might even find a particular track 🔎.
       </div>
+
+      <p>
+        Isn’t it great to see what versions of code you already have been using? So many different variations of changing parts together to create something bigger! But apart from this website, nothing about digital code or DNA code was included so far… So let’s continue to understand that.
+      </p>
 
     </div>
 
@@ -152,14 +215,14 @@
       <img src="img/computer.svg" class="sectionHeaderImg" />
 
       <h2>
-        Binary Code
+        How a computer uses code: Binary code
       </h2>
 
       <p>
-        By now you should have got an understanding of simple codes and what sequencing can do. Before we dig a little deeper into how data is stored on DNA, we first need to understand how digital data is stored on a computer.
+        By now, you should have got an understanding of simple codes and what sequencing can do. Before we dig a little deeper into how data is stored on DNA, we first need to understand how digital information is stored on a computer.
       </p>
       <p>
-        You probably have heard of the term <b>binary code</b> already. So in the next section we try to understand the basic capabilities of this code.
+        You probably have heard of the term "binary code" already. So in the next section, we try to understand the basic capabilities of this code.
       </p>
 
     </div>
@@ -170,7 +233,11 @@
       </h3>
 
       <p>
-        Base of <code>10</code>. The system we are used to. If we would split the numbers into a table, then each column would have a <code>0</code> more. So one column with all the <code>1</code>s, one with the <code>10</code>s, one with the <code>100</code>s, and so on. Each cell can have <code>10</code> options. So—as we are used to—<code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, and <code>9</code>. If the value goes above this limit, the next column counts one up. The table would look like this:
+        Base-10, that’s the system we are using mainly. It is the system we have in our day-to-day, no matter if it’s the price of a product in the supermarket, a street name, or telling the time. Each digit has ten options, starting with <code>0</code> up to the 10th digit <code>9</code>. If it would hit this one, we increase the next higher digit. So if we count from 9 up, we increase the digit to its left to <code>1</code> and reduce the current to <code>0</code>, we get <code>10</code>.
+      </p>
+
+      <p>
+        If we split the numbers into a table, then each column would have a power of ten more.<sup data-for="8">8</sup> So one column with all the <code>1s</code>, one with the <code>10s</code>, one with the <code>100s</code>, and so on. Each cell can have ten options. So—as we are used to—<code>0, 1, 2, 3, 4, 5, 6, 7, 8, and 9</code>. If the value goes above this limit, the next column counts one up. The table would look like this:
       </p>
 
       <table>
@@ -195,11 +262,15 @@
       </table>
 
       <p>
-        Then we add the numbers in each column to get the result of a row. Reading the table above would look something like this: <code>200 + 30 + 1 = 231</code>.
+        Then we add the numbers in each column to get the result of a row. Reading the table above would look something like this:
       </p>
 
+      <code class="codeBlock">
+        ( 2 × 100 ) + ( 3 × 10 ) + ( 1 × 1 ) = 200 + 30 + 1 = 231
+      </code>
+
       <p>
-        A number system of the base of <code>2</code> behaves similarly. But instead of having in each column times 10 the value, we multiply by the value 2. Hence the columns generate like this: <code>1</code>, <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, and so on. As we are on the base of 2, each cell can only have 2 options: <code>0</code> or <code>1</code>. The table would look like this:
+        A number system of the base of <code>2</code> behaves similarly. But instead of having in each column on the power of <code>10</code>, we multiply by the value <code>2</code>. Hence the columns generate like this:<code>1, 2, 4, 8, 16, etc</code>. As we are on the base of two, each cell can only have two options: <code>0</code> or <code>1</code>. The table would look like this:
       </p>
 
       <table>
@@ -230,40 +301,51 @@
       </table>
 
       <p>
-        Now we calculate in the same way, we add up the numbers of the table head times the amount of this number we need: <code>0 + 2 + 1 = 3</code>.
+        Now we calculate in the same way. We add up the number of the table head times to the number we need:
       </p>
+
+      <code class="codeBlock">
+        ( 0 × 4 ) + ( 1 × 2 ) + ( 1 × 1 ) = 0 + 2 + 1  = 3
+      </code>
 
       <img src="img/binaryShift.svg" class="sectionHeaderImg" />
 
       <p>
-        Another way to think about counting in binary is to always start from the right and shift the digit one forward (to the left) if the value increases. If the shift up would hit a <code>1</code>, then the number left to this increases and all the lower digits get set to <code>0</code> again.
+        Another way to think about counting in binary is to always start from the right and shift the digit one forward (to the left) if the value increases. If the shift up would hit a <code>1</code>, then the number left to this increases, and all the lower digits get set to <code>0</code> again. Like we do with the power of ten, just after it would hit <code>2</code> already.
       </p>
 
       <p>
-        This might sound confusing, but try it out yourself below. Try to increase the numbers slowly or play around if you can generate the numbers you want in binary!
+        This might sound confusing, but try it out yourself below. Try to increase the numbers slowly. Type in the numbers you want to transform, or play around if you can generate the numbers you want in binary!
       </p>
 
       <div id="exampleBase2" class="exampleBase interaction-placeholder">
         <!-- javaScript -->
       </div>
       <div class="interactionDescription">
-        Change the number and see how the binary values change or click on the binary values to see how the number changes. Try to increase the number using your arrow keys and see how the number changes steadily.
+        Change the number and see how the binary values change, or click on the binary values to see how the number changes. Try to increase the number using your arrow keys and see how the number changes steadily.
       </div>
+
+      <p>
+        In computer code, this is the smallest unit existing. One digit is called a “bit” <span class="unit">b</span>. I assume you have heard this term before. In the following section, we will try to make something else out of these bits. So let’s have a look!
+      </p>
 
     </div>
     <div class="content">
       <h3>
-        Generating Letters
+        Generating Characters
       </h3>
 
       <p>
-        Using eight of these bits, we have one byte. A byte can have up to <code>256</code> different combinations.
+        Eight of these bits are called a “byte” <span class="unit">B</span>. You have heard of them as well. This is the regular unit we are talking about when it comes to file size and data storage. One byte is not a lot of information. That’s why we usually refer to Kilobyte <span class="unit">KB</span>, Megabyte <span class="unit">MB</span>, Gigabyte <span class="unit">GB</span>, etc. One KB contains 1024 B, and one MB is equal to 1024 KB, and so on.
       </p>
       <p>
-        If one byte is one letter, these <code>8</code> binary values can display one of <code>256</code> letters if one is able to understand the code that each combination is assigned to. This is how text is stored on your computer.
+        But what is stored in one byte? As one byte contains eight bits, it can have up to 256 different states.<sup data-for="9">9</sup> If one byte is one character, these eight binary values can display one of 256 characters. Hence 100 B could be a text with 100 characters. This is how text is stored on your computer.
       </p>
       <p>
-        Play around below to test what letter is using which code in your computer. Or the other way around!
+        Now we only need the key to understand which of these states is assigned to which character. This information is stored in our computers to read the data and translate it into a human-readable format.
+      </p>
+      <p>
+        It sounds very abstract, and it is, but we use this example only to understand the concept of how data is encoded. Play around below to test what letter is using which code in your computer. Or the other way around!
       </p>
 
       <div id="exampleBinaryletters" class="interaction-placeholder">
@@ -273,6 +355,10 @@
         Change the character and see how the binary values change or click on the binary values to see which character it represents.
       </div>
 
+      <p>
+        Okay, now we have encoded text in binary, but what about all the other files and elements we use on our computers? Let’s go briefly over it.
+      </p>
+
     </div>
     <div class="content">
       <h3>
@@ -280,16 +366,16 @@
       </h3>
 
       <p>
-        Above have been two very straight forward examples. But just like languages, this can get infinitely complex. <code>1</code> s and <code>0</code>s get stored to create letters and numbers, which get stored to generated sentences, etc. In the beginning the language is specified, this way the computer is able to understand if this is an image, a text document, or even something completely different!
+        Above have been two very straightforward examples. But just like languages, this can get infinitely complex. 1s and 0s get stored to create characters and numbers, could generate sentences, etc. The first bytes are used to specify the type of file, so the computer can understand if it is an image, a text document, or even something completely different. It then knows how to interpret the following bytes based on the codes the computer understands.
       </p>
       <p>
-        Reversing this process means that everything on your computer is finally stored in 1s and 0s.
+        Reversing this process means that everything on your computer is finally stored in 1s and 0s. Think about a decision tree—only having two options at each time—that is infinitely long. It might need a lot of decisions, but eventually, you will arrive at the outcome you intended. In a very, very abstract way, this is how data is stored on your computer.
       </p>
 
       <img src="img/decisionTree.svg" class="sectionHeaderImg" />
 
       <p>
-        Think about a decision tree of only having two options at each time, that is infinitly long. It might need a lot of decisions, but eventually, you will arrive at the one you want to arrive at. In a very abstract way, this is how data is stored on your computer.
+        So now we got a glimpse of the concept of digital data. Let’s get to our last part, how is this data translated into DNA.
       </p>
 
     </div>
@@ -314,11 +400,11 @@
         DNA is the building plan of life on Earth. It is this little strand that contains all the information that is needed to build plants 🪴, animals 🦆, and humans 🤸.  But how does it do that?
       </p>
       <p>
-        Let's start with the components the DNA is built of: Nucleobases. There are five of those, so called, primary nucleobases. Four of them form the DNA strand: adenine (A), cytosine (C), guanine (G), and thymine (T). These four are put in a chain and store this way the instructions to build every cell of a living organism. Enzymes read the strand and translate it into RNA which then is used by Ribosomes to form proteins. **[read more here]**
+        Let's start with the components the DNA is built of: Nucleobases. There are five of those so-called primary nucleobases. Four of them form a DNA strand: adenine (A), cytosine (C), guanine (G), and thymine (T). These four are put in a chain and store the instructions to build every cell of a living organism. Enzymes read the strand and translate it into RNA, which then is used by Ribosomes to read and form proteins.<sup data-for="10">10</sup>
       </p>
 
       <p>
-        But are just four bases sufficient to form every living cell that exists on Earth? Yes! Remember how digital data is stored using only <code>1</code> and <code>0</code>? Our DNA behaves similarly, but storing data on the base of <code>4</code> instead of <code>2</code>.
+        A very rough explanation of the usage of DNA, but just to give a glimpse, the most important part are the four bases. But are just four bases sufficient to form every living cell that exists on Earth? Yes! Remember how digital data is stored using only 1 and 0? Our DNA behaves similarly but stores data on the power of 4 instead of 2. Let’s dive in a little deeper.
       </p>
     </div>
 
@@ -327,12 +413,59 @@
         Numbers on the base of 4
       </h3>
 
+      <p>
+        Just like the power of two examples, each column entails one number. But instead of just <code>1</code> or <code>0</code>, we now can enter four different options: <code>0, 1, 2, and 3</code>. As with the others, each column contains one power of 4, which we then could select up to <code>4</code> times. The table would look like this:
+      </p>
+
+      <table>
+        <tr>
+          <th>16</th>
+          <th>4</th>
+          <th>1</th>
+          <th>Total</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>3</td>
+          <td>1</td>
+          <td>45</td>
+        </tr>
+      </table>
+
+      <p>
+        Like in the previous examples above, we multipy the cell value with the head value and add them up in the row. It would be read like this:
+      </p>
+
+      <code class="codeBlock">
+        ( 2 × 16 ) + ( 3 × 4 ) + ( 1 × 1 ) = 32 + 12 + 1  = 45
+      </code>
+
+      <p>
+        Ok, now that we understood this, let’s test it out below!
+      </p>
+
       <div id="exampleBase4" class="exampleBase interaction-placeholder">
         <!-- javaScript -->
       </div>
       <div class="interactionDescription">
-        Change the number and see how the binary values change or click on the binary values to see how the number changes. Try to increase the number using your arrow keys and see how the number changes steadily.
+        Change the number and see how the binary values change, or click on the binary values to see how the number changes. Try to increase the number using your arrow keys and see how the number changes steadily.
       </div>
+
+      <p>
+        Ok, now we know how we generate numbers on the power of 4. Still no DNA. Let’s do that in the final example!
+      </p>
 
     </div>
 
@@ -342,10 +475,14 @@
         Storing simple data on DNA
       </h3>
 
+      <p>
+        Ok, we know we have four nucleobases: A, C, G, and T. If we set each base to a value between 0 and 3, we have the same storage system of the power of 4. This can then be translated into the base system of 2, back to the binary system of a computer. This binary chain can then be read like all digital data or the character example above. The key for this translation looks like this:<sup data-for="11">11</sup>
+      </p>
+
       <table>
         <tr>
-          <th>Base</th>
-          <th>Value</th>
+          <th>Nucelobase</th>
+          <th>Power of 4</th>
           <th>Binary</th>
         </tr>
         <tr>
@@ -371,12 +508,23 @@
       </table>
 
       <p>
-        To make this a little more tangible, try writing a sentence below and see how the data would be stored in a DNA strand.
+        So depending on how we chain the nucleobases in our synthetic DNA, we can translate the information into binary, digital files again, which can be translated into their intended format. Just like the characters to words to sentences to paragraphs etc.
+      </p>
+
+      <p>
+        To make this a little more tangible, try writing a sentence below and see how the data would be stored in a DNA strand. Type a sentence in the text field above and see how a DNA strand would look like:
       </p>
 
       <div id="exampleTextToDNA" class="interaction-placeholder">
         <!-- javaScript -->
       </div>
+      <div class="interactionDescription">
+        Desc
+      </div>
+
+      <p>
+        You did it! You translated your text into a DNA strand! This is a simulation of how data would be stored on DNA.
+      </p>
 
     </div>
 
@@ -388,14 +536,58 @@
       <h2>
         Outro
       </h2>
+
+      <p>
+        After reading all this, I hope you understood how codes work, how digital data is stored, and finally, how this would be stored on a DNA strand. Even if this website simplifies the topic a lot, I hope it still helps you understand it better.
+      </p>
+      <p>
+        We are still at the beginning of this technology, but it could bring a huge potential and impact on our future. Big data storage facilities could get replaced and consume way less energy and space. It might get implemented in our day-to-day devices and increase the storage capacity tremendously. Or it could just be used to preserve data for our past, saving it for future generations. When the technology is developed enough is a question of years, if not decades. How this impact will be visible in our everyday lives will show.
+      </p>
+      <p>
+        Thank you, and stay excited!
+      </p>
+
     </div>
 
   </section>
 
   <section class="footnotes">
       <ol>
+        <li id="fn:0">
+           You don’t believe me? Have a look <a href="https://www.cnet.com/tech/computing/startup-packs-all-16gb-wikipedia-onto-dna-strands-demonstrate-new-storage-tech/">here</a>!
+        </li>
         <li id="fn:1">
+           Ötzi, also called “the Iceman,” was found in the Austrian “Ötztal” Alps in 1991. He is a natural mummy who lived between 3400 and 3100 BCE. Learn more about him on <a href="https://en.wikipedia.org/wiki/%C3%96tzi">Wikipedia</a>.
+        </li>
+        <li id="fn:2">
+          This info comes from a <a href="https://en.wikipedia.org/wiki/Human_genome#Information_content">Wikipedia article</a>. So please take it with a grain of salt.
+        </li>
+        <li id="fn:3">
+          Here you can read more at the <a href="https://wyss.harvard.edu/news/save-it-in-dna/">Wyss Institute for Biologically Inspired Engineering</a>.
+        </li>
+        <li id="fn:4">
+          The X-Wing is one of the starfighters from “Star Wars.” Find more <a href="https://starwars.fandom.com/wiki/X-wing_starfighter">here</a>. If you haven’t watched Star Wars I highly suggest you to do so now!
+        </li>
+        <li id="fn:5">
+          If you want to learn more about morse code, have a look at its <a href="https://en.wikipedia.org/wiki/Morse_code">Wikipedia page</a>.
+        </li>
+        <li id="fn:6">
+          Here is a legend of all the morse code letters and codes if you want to cheat ;) CODE
+        </li>
+        <li id="fn:7">
           The legend of Zelda Ocarina of Time and Majora' Mask are games from the N64 system. They were released in 1998 (OoT) and 2000 (MM).
+        </li>
+        <li id="fn:8">
+          If you haven’t watched the “Powers of ten” video by Ray and Charles Eames, then I highly recommend watching it! It displays beautifully what times 10 can do. You can find it <a href="https://www.youtube.com/watch?v=0fKBhvDjuy0">here</a>.
+        </li>
+        <li id="fn:9">
+          2 to the power of 8 is 256. This displays all the possible numbers we have in one byte, as we have eight times two options. So 2×2×2×2×2×2×2×2.
+        </li>
+        <li id="fn:10">
+          Here is a super brief <a href="https://www.youtube.com/watch?v=zwibgNGe4aY">video</a> that explains what DNA is and how it gets read.
+        </li>
+        <li id="fn:11">
+          This is one possible option to encode the data, taken from this <a href="https://www.youtube.com/watch?v=wxStlzunxCw">TED talk</a>. Of course, every other mapping would be possible as well. This would need to be manifested in a convention.
         </li>
       </ol>
   </section>
@@ -416,7 +608,7 @@
         <h5>About</h5>
 
         <p>
-          This project is a result of the MFA Design and Technology Major Studio 2 class at Parsons School of Design, The New School, led by Justin Bakse.
+          This project is a result of the <a href="https://www.newschool.edu/parsons/mfa-design-technology/">MFA Design and Technology</a> Major Studio 2 class at Parsons School of Design, The New School, led by <a href="https://justinbakse.com/">Justin Bakse</a>.
         </p>
 
         <ul id="aboutList">

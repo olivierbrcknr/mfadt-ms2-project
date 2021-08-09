@@ -8,7 +8,13 @@ const example_base = (container, base, maxDigits = 8) => {
 
     </div>
     <div class="input">
+      <div class="baseButton decrease">
+        -
+      </div>
       <input class="number" type="number" default="42" min="0" max="1024" />
+      <div class="baseButton increase">
+        +
+      </div>
     </div>
   `
 
@@ -18,10 +24,14 @@ const example_base = (container, base, maxDigits = 8) => {
   const binaryDisplay = container.querySelector('.binaryVal')
   const baseValues = container.querySelector('.baseValues')
 
+  const incBtn = container.querySelector('.baseButton.increase')
+  const decBtn = container.querySelector('.baseButton.decrease')
+
   let currentVal = ""
 
   // const maxDigits = 8
-  numberInput.setAttribute('max',Math.pow( base, maxDigits ) * base - 1)
+  const maxVal = Math.pow( base, maxDigits ) * base - 1
+  numberInput.setAttribute('max',maxVal)
 
   // setup HTML
   for( let i = maxDigits; i >= 0; i--){
@@ -112,6 +122,22 @@ const example_base = (container, base, maxDigits = 8) => {
   })
   numberInput.addEventListener('keyup',(e)=>{
     convertDecToBinary( e.target.value )
+  })
+
+  incBtn.addEventListener('click',()=>{
+    const v = parseInt(numberInput.value)
+    if( v < maxVal ){
+      numberInput.value = v + 1
+      numberInput.dispatchEvent( new Event('change') )
+    }
+  })
+
+  decBtn.addEventListener('click',()=>{
+    const v = parseInt(numberInput.value)
+    if( v > 0 ){
+      numberInput.value = v - 1
+      numberInput.dispatchEvent( new Event('change') )
+    }
   })
 
   binaryDigits.forEach((bd,i)=>{

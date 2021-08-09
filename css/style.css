@@ -4,8 +4,8 @@
 }
 
 ::selection {
-  color: var(--color-white);
-  background: var(--color-highlight);
+  color: var(--color-highlight);
+  background: #0002;
 }
 
 html, body {
@@ -15,7 +15,7 @@ html, body {
   background: var(--color-bg);
 
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 a {
@@ -38,6 +38,25 @@ code {
   color: var(--color-highlight);
   line-height: 1.3;
 }
+code.codeBlock {
+  display: block;
+  text-align: center;
+  padding: 0.6em 0.2em;
+  margin: 1rem 0;
+  border-radius: 6px;
+  background: var(--interaction-background);
+  word-spacing: -0.4em;
+}
+.unit {
+  font-family: var(--font-family-mono);
+  color: var(--color-highlight);
+}
+.unit:before {
+  content: '[';
+}
+.unit:after {
+  content: ']';
+}
 
 blockquote {
   margin: 2rem 0;
@@ -53,6 +72,13 @@ blockquote:before {
   width: 2px;
   background: var(--color-bg-light);
 }
+blockquote .quoteSource {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  font-style: italic;
+}
+
 
 table {
   border-collapse: collapse;
@@ -63,13 +89,14 @@ tr {
 }
 td,
 th {
-  padding: 4px;
-  width: 100px;
-  border: 1px solid var(--color-font-light);
+  padding: 0.2em 0.5em;
+  min-width: 4rem;
+  border: 1px solid var(--color-bg-light);
   text-align: right;
 }
 th {
   font-weight: 600;
+  border-bottom-color: var(--color-font-med);
 }
 
 /* Grid Display */
@@ -273,6 +300,9 @@ footer a {
   list-style: decimal-leading-zero;
   padding-left: 2.5em;
 }
+#sourceList li {
+  margin-bottom: 0.5em;
+}
 #sourceList li::marker {
   font-family: var(--font-family-mono);
 }
@@ -315,6 +345,9 @@ section .content {
   color: var(--color-font-light);
   font-size: 15px;
 }
+.interactionDescription + p {
+  margin-top: 1rem;
+}
 
 /* Footnotes  */
 
@@ -331,27 +364,41 @@ sup,
 sup a {
   text-decoration: none;
   font-weight: bold;
-  padding: 0 0.1em;
+  font-size: 13px;
 }
 .footnotes ol {
   list-style: decimal;
   /*padding-left: 1.5em;*/
 }
 .footnotes ol li {
-  padding-top: 9px;
+  padding-top: 3px;
   font-size: 13px;
   color: var(--color-font-med);
   transition: color 0.3s;
-
+  position: absolute;
+ /* word-break: break-all;*/
 }
 .footnotes ol li::marker {
   color: var(--color-highlight);
+}
+.footnotes ol li a {
+  color: inherit;
+  transition: color 0.3s;
 }
 .footnotes ol li:hover,
 .footnotes ol li.isHovering {
   color: var(--color-font);
 }
-
+.footnotes ol li:hover a,
+.footnotes ol li.isHovering a {
+  color: var(--color-highlight);
+}
+.footnotes .footnoteBacklink {
+  display: none;
+  color: var(--color-highlight) !important;
+  font-weight: bold;
+  text-decoration: none;
+}
 
 
 @media (prefers-color-scheme: dark) {
@@ -435,6 +482,11 @@ sup a {
   }
   .footnotes ol li {
     top: auto !important;
+    position: relative;
+    margin-bottom: 0.5em;
+  }
+  .footnotes .footnoteBacklink {
+    display: inline-block;
   }
 
   footer .footerWrapper {

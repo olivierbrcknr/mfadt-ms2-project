@@ -1,10 +1,42 @@
 [
   {
     "title": "Code: The Hidden Language of Computer Hardware and Software",
-    "link" : "",
     "publisher": "Redmond, WA: Microsoft Press",
     "year": 2000,
     "author": "Petzold, Charles",
-    "desc": ""
+    "desc": "",
+    "doi" : "10.5860/choice.38-0334"
+  },
+  {
+    "title": "Bridging data-capacity gap in big data storage",
+    "publisher": "Future Generation Computer Systems, Volume 87: 538-548",
+    "year": 2018,
+    "author": "Bhat, Wasim A",
+    "desc": "",
+    "doi" : "10.1016/j.future.2017.12.066"
+  },
+  {
+    "title": "Reading and writing digital data in DNA",
+    "publisher": "Nature Protocols, Volume 15, Issue 1: 86-101",
+    "year": "2020, January",
+    "author": "Meiser, Linda C. et al",
+    "desc": "",
+    "doi" : "10.1038/s41596-019-0244-5"
+  },
+  {
+    "title": "Molecular access to multi-dimensionally encoded information",
+    "publisher": "European polymer journal, Volume 120: 109260",
+    "year": "2019, November",
+    "author": "Steinkoenig, Jan et al",
+    "desc": "",
+    "doi" : "10.1016/j.eurpolymj.2019.109260"
+  },
+  {
+    "title": "How we can store digital data in DNA",
+    "publisher": "TED video, 12:54",
+    "year": "2017, October",
+    "author": "Zielinski, Diana",
+    "desc": "",
+    "link" : "https://www.youtube.com/watch?v=wxStlzunxCw"
   }
 ]

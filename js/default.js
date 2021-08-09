@@ -7,6 +7,7 @@ let currentHeadline = 0
 let navElements = []
 let footerDOM = null
 let navDOM = null
+let footnotesGenerated = false
 
 const initNav = () => {
 
@@ -28,7 +29,7 @@ const initNav = () => {
 
     const navA = document.createElement('a')
     navA.innerText = h.textContent.replace(/(?:\r\n|\r|\n)/g, '')
-    navA.href = "#"+anchor;
+    navA.href = "#"+anchor
 
     navLi.append(navA)
     navListDOM.append(navLi)
@@ -98,26 +99,34 @@ const addSources = () => {
   const generateSourceList = () => {
 
     sourceDB.sort((a, b) => {
-      let fa = a.title.toLowerCase(),
-          fb = b.title.toLowerCase();
+      let fa = a.author.toLowerCase(),
+          fb = b.author.toLowerCase()
 
       if (fa < fb) {
-          return -1;
+          return -1
       }
       if (fa > fb) {
-          return 1;
+          return 1
       }
-      return 0;
-    });
+      return 0
+    })
 
 
     for( let i = 0; i < sourceDB.length; i++ ){
 
       const s = sourceDB[i]
 
+      let linkDom = `<a href="https://doi.org/${ s.doi }">${ s.doi }</a>`
+
+      if( (!s.doi || s.doi === "") && s.link ){
+        const linkText = s.link.replace(/(^\w+:|^)\/\//, '')
+        linkDom = `<a href="${ s.link }">${ linkText }</a>`
+      }
+
       sourcesDOM.innerHTML += `<li>
-        <b>${ s.author }</b>. “${ s.title }.” ${ s.publisher }, ${ s.year }. <a href="${ s.link }">[Link]</a>
+        <b>${ s.author }. ${ s.year }.</b> “${ s.title }.” ${ s.publisher }. ${ linkDom }
       </li>`
+
     }
   }
 
@@ -138,28 +147,54 @@ const addSources = () => {
 const positionFootnotes = () => {
 
   const startOfArticle = 0
-  const footnotes = document.querySelectorAll('sup')
+  const footnotesIndicators = document.querySelectorAll('sup')
   const marginalColumn = document.querySelector('.footnotes')
+  const footnotes = marginalColumn.querySelectorAll("li")
 
-  footnotes.forEach( (fn) => {
+  let lastBottom = 0
 
-    const id = fn.getAttribute('data-for')
-    const fnContent = fn.innerText
-    fn.innerHTML = "<a href='#fn:"+id+"'>"+fnContent+"</a>"
+  footnotesIndicators.forEach( (fn,i) => {
 
-    const reference = marginalColumn.querySelector('#fn\\:'+id)
+    const reference = footnotes[i]
+    let topOfLink = fn.getBoundingClientRect().top + window.scrollY - startOfArticle
 
-    let topOfLink = fn.getBoundingClientRect().top + window.scrollY - startOfArticle;
+    if( !footnotesGenerated ){
 
-    fn.addEventListener('mouseenter', () => {
-      reference.classList.add("isHovering");
-    });
-    fn.addEventListener('mouseleave', () => {
-      reference.classList.remove("isHovering");
-    });
+      const index = i+1
 
-    reference.style.top = topOfLink + 'px';
-  });
+      const dataFor = fn.getAttribute('data-for')
+      const fnContent = fn.innerText
+      fn.innerHTML = "<a href='#fn:"+index+"'>"+index+"</a>"
+      fn.setAttribute('id','sup:'+index)
+
+      // const reference = marginalColumn.querySelector('#fn\\:'+dataFor)
+      reference.setAttribute('id','fn:'+index)
+
+      const backLink = document.createElement('a')
+      backLink.href = "#sup:"+index
+      backLink.innerText = '↥'
+      backLink.classList.add('footnoteBacklink')
+      reference.appendChild( backLink )
+
+      fn.addEventListener('mouseenter', () => {
+        reference.classList.add("isHovering")
+      })
+      fn.addEventListener('mouseleave', () => {
+        reference.classList.remove("isHovering")
+      })
+    }
+
+    if( topOfLink <= lastBottom ){
+      topOfLink = lastBottom
+    }
+
+    reference.style.top = topOfLink + 'px'
+
+    // save last bottom in case of overlap
+    lastBottom = reference.offsetHeight + topOfLink
+  })
+
+  footnotesGenerated = true
 }
 
 const initToggleGridDisplay = () => {
@@ -179,7 +214,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initNav()
   updateNavOnScroll()
-  positionFootnotes()
   initToggleGridDisplay()
 })
 
