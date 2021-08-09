@@ -9,7 +9,7 @@
   display: flex;
   height: 30%;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 #exampleBinaryletters .binaryVal .binaryDigit {
 /*.exampleBase .binaryVal .binaryDigit {*/
@@ -240,4 +240,32 @@ input[type=number]::-webkit-outer-spin-button {
     transform: rotateX(0deg);
     z-index: 5;
   }
+}
+
+@media only screen and (max-width: 959px) {
+
+  .card {
+    font-size: 6vw;
+  }
+}
+
+@media only screen and (max-width: 719px) {
+
+  .card {
+    font-size: 8.5vw;
+  }
+  .exampleBase .baseValues .baseVal {
+    font-size: 0.8rem;
+  }
+
+}
+@media only screen and (max-width: 399px) {
+
+  .card {
+    font-size: 1.6rem;
+  }
+  .exampleBase .baseValues .baseVal {
+    font-size: 0.8rem;
+  }
+
 }

@@ -39,13 +39,13 @@ const example_trafficLight = (container) => {
 
   greenLight.addEventListener('click',()=>{
     isGreen = true
-    greenLight.classList.add('hasBeenClicked')
+    container.classList.add('hasBeenClicked')
     setTrafficLight()
   })
 
   redLight.addEventListener('click',()=>{
     isGreen = false
-    redLight.classList.add('hasBeenClicked')
+    container.classList.add('hasBeenClicked')
     setTrafficLight()
   })
 

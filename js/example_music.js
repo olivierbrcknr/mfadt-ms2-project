@@ -53,6 +53,7 @@ const example_music = (container) => {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         songDB = JSON.parse(this.responseText)
+        initZeldaSpoiler()
       }
     }
     xmlhttp.open("GET", "data/zelda_songs.json", true)
@@ -192,6 +193,54 @@ const example_music = (container) => {
     currentSong = []
     songChange()
   })
+
+  const initZeldaSpoiler = () => {
+
+    const spInfo = document.querySelector('.zeldaSpoiler .spoilerInfo')
+
+    const rows = []
+
+    for( let m in songDB ) {
+
+      const musicSheet = []
+
+      for( let n = 0; n < songDB[m].length; n++ ){
+
+        let noteType = songDB[m][n]
+        switch( noteType ){
+          case "a":
+            noteType = "A"
+            break
+          case "l":
+            noteType = "←"
+            break
+          case "r":
+            noteType = "→"
+            break
+          case "u":
+            noteType = "↑"
+            break
+          case "d":
+            noteType = "↓"
+            break
+        }
+
+        musicSheet.push(`<span class="zeldaSpoilerNote ${ songDB[m][n] }">
+          ${ noteType }
+        </span>`)
+
+      }
+
+
+      rows.push( `<tr>
+        <td>${m}</td>
+        <td>${ musicSheet.join('') }</td>
+      </tr>` )
+    }
+
+    spInfo.innerHTML = `<table>${ rows.join('') }</table>`
+  }
+
 
 }
 

@@ -121,3 +121,21 @@
   background: var(--color-highlight-dark);
 }
 
+.zeldaSpoiler .spoilerInfo table {
+  width: 100%;
+}
+.zeldaSpoiler .spoilerInfo table td {
+  border-bottom: solid 1px var(--color-bg-light);
+  width: 50%;
+}
+.zeldaSpoiler .spoilerInfo table tr:last-child td {
+  border-bottom: none;
+}
+
+.zeldaSpoilerNote {
+  color: var(--color-yellow-dark);
+}
+.zeldaSpoilerNote.a {
+  color: var(--color-highlight);
+}
+

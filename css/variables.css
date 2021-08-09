@@ -18,6 +18,8 @@
   --color-gray-dark: #27283B;
   --color-gray-med: #3C3E5B;
 
+  --shadow-color: #27283B11;
+
   --color-font: var(--color-black);
   --color-font-light: #B6B8D8;
   --color-font-med: #A7AACF;
@@ -48,6 +50,8 @@
     --color-bg:          #232429;
     --color-bg-light:    #4E5260;
     --interaction-background: #363841;
+
+    --shadow-color: #23242955;
   }
 }
 

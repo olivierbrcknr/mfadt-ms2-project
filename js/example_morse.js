@@ -9,13 +9,13 @@ const example_morse = (container) => {
     </div>
     <div class="input">
       <div class="morseButton short">
-        short
+        <div class="morseButtonVis"></div>
       </div>
       <div class="morseButton long">
-        long
+        <div class="morseButtonVis"></div>
       </div>
       <div class="morseButton clearBtn">
-        clear
+        Clear
       </div>
     </div>
   `
@@ -42,6 +42,7 @@ const example_morse = (container) => {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         morseDB = JSON.parse(this.responseText)
+        initMorseSpoiler()
       }
     }
     xmlhttp.open("GET", "data/morse.json", true)
@@ -141,4 +142,21 @@ const example_morse = (container) => {
 
     // letterToMorse( e.target.value )
   })
+
+
+  const initMorseSpoiler = () => {
+
+    const spInfo = document.querySelector('.morseSpoiler .spoilerInfo')
+
+    const rows = []
+
+    for( let m in morseDB ) {
+      rows.push( `<tr>
+        <td>${m}</td>
+        <td>${morseDB[m]}</td>
+      </tr>` )
+    }
+
+    spInfo.innerHTML = `<table>${ rows.join('') }</table>`
+  }
 }

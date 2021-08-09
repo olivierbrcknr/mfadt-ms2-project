@@ -36,13 +36,15 @@
 #exampleMorse .morseCode.isDissolving {
   opacity: 0;
 }
+#exampleMorse .morseButtonVis,
 #exampleMorse .morseCode .morseSignal {
   background: var(--color-gray-med);
-  height: 14px;
-  width: 14px;
+  height: 12px;
+  width: 12px;
   margin: 0 10px;
   border-radius: 20px;
 }
+#exampleMorse .long .morseButtonVis,
 #exampleMorse .morseCode .morseSignal.l {
   width: 80px;
 }
@@ -57,12 +59,41 @@
 #exampleMorse .morseButton {
   cursor: pointer;
   width: 30%;
-  background: var(--color-gray-med);
-  text-align: center;
+  background: var(--color-highlight);
   padding: 0.5rem 1rem;
+  height: 3rem;
   border-radius: 4px;
   color: var(--color-white);
+  font-weight: 500;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #exampleMorse .morseButton:active {
-  background: var(--color-gray-dark);
+  background: var(--color-highlight-dark);
+}
+
+#exampleMorse .morseButtonVis {
+  background: var(--color-white);
+  margin: 0;
+}
+
+
+.morseSpoiler .spoilerInfo {
+  column-count: 3;
+}
+.morseSpoiler .spoilerInfo td:first-child {
+  color: var(--color-highlight);
+}
+
+.morseSpoiler .spoilerInfo td:last-child {
+  letter-spacing: 0.2em;
+}
+
+@media only screen and (max-width: 450px) {
+
+  .morseSpoiler .spoilerInfo {
+    column-count: 2;
+  }
 }

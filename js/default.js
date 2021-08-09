@@ -207,6 +207,24 @@ const initToggleGridDisplay = () => {
 
 }
 
+const initSpoilers = () => {
+
+
+  const spoilers = document.querySelectorAll( '.spoiler' )
+
+  spoilers.forEach((s)=>{
+
+    s.querySelector('.spoilerDesc').addEventListener('click',()=>{
+
+      s.classList.toggle('isOpen')
+      positionFootnotes()
+
+    })
+
+  })
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   setupExamples()
@@ -215,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav()
   updateNavOnScroll()
   initToggleGridDisplay()
+  initSpoilers()
 })
 
 window.onload = () => {

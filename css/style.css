@@ -345,6 +345,9 @@ section .content {
   color: var(--color-font-light);
   font-size: 15px;
 }
+.interactionDescription a {
+  color: inherit;
+}
 .interactionDescription + p {
   margin-top: 1rem;
 }
@@ -398,6 +401,49 @@ sup a {
   color: var(--color-highlight) !important;
   font-weight: bold;
   text-decoration: none;
+}
+
+.spoiler {
+
+}
+.spoilerDesc {
+  cursor: pointer;
+  padding-left: 1.5rem;
+  color: var(--color-font-med);
+  user-select: none;
+}
+.spoilerDesc:before {
+  content: '‣';
+  color: var(--color-font-med);
+  position: absolute;
+  left: 0;
+  top: -0.45em;
+  font-size: 2em;
+}
+.spoilerInfo {
+  background: var(--interaction-background);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-left: 1.5rem;
+  display: none;
+}
+
+.spoiler.isOpen .spoilerDesc:before {
+  transform: rotate(90deg);
+}
+
+.spoiler.isOpen .spoilerInfo {
+  display: block;
+}
+
+.spoilerInfo table {
+  margin: 0;
+}
+.spoilerInfo table td,
+.spoilerInfo table th {
+  border: none;
+  min-width: 1rem;
+  text-align: left;
 }
 
 

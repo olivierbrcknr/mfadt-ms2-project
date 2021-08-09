@@ -86,8 +86,16 @@
   animation-iteration-count: 1;*/
 }
 
-#exampleTrafficLight .trafficLight .light.hasBeenClicked {
+#exampleTrafficLight.hasBeenClicked .trafficLight .light {
   animation-name: none;
+}
+
+
+#exampleTrafficLight:hover .trafficLight .light.redLight {
+  border: solid 4px var(--color-highlight);
+}
+#exampleTrafficLight.hasBeenClicked:hover .trafficLight .light.redLight {
+  border: none;
 }
 
 
