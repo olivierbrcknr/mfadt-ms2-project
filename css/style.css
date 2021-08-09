@@ -75,8 +75,8 @@ blockquote:before {
 blockquote .quoteSource {
   display: block;
   font-size: 0.8rem;
-  opacity: 0.5;
   font-style: italic;
+  color: var(--color-font-footer);
 }
 
 
@@ -225,8 +225,9 @@ nav li.H3 a:before {
 /* ————————————— */
 
 h1 {
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 h2 {
@@ -234,6 +235,7 @@ h2 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  line-height: 1.3;
 }
 h3 {
   font-weight: bold;
@@ -248,6 +250,12 @@ h5 {
   letter-spacing: 0.08em;
   margin-bottom: 1em;
 }
+
+h6 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+
 p {
   margin-bottom: 1rem;
 }
@@ -264,11 +272,12 @@ footer {
 }
 
 header {
-  background: var(--color-highlight);
-  color: var(--color-white);
+
 }
+
 header .inner {
   max-width: var(--max-width);
+  padding-right: calc( var(--marginal-column-width) + var(--marginal-column-margin) );
   margin: 0 auto;
 }
 
@@ -326,13 +335,24 @@ section .content {
   padding-right: calc( var(--marginal-column-width) + var(--marginal-column-margin) );
 }
 
-.sectionHeaderImg {
-  display: block;
-  width: 100%;
-  max-width: var(--max-width-text);
-  margin: 1rem 0;
+hr {
+  height: 1px;
+  background: var(--color-bg-light);
+  margin: 3rem auto;
+  border: none;
+
+  width: var(--max-width-text);
+  transform: translateX( calc( var(--marginal-column-width)/-2 + var(--marginal-column-margin)/-2 ) );
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+img.right {
+  margin-right: 0;
+}
 
 .interaction-placeholder {
   height: 400px;
@@ -402,6 +422,10 @@ sup a {
   font-weight: bold;
   text-decoration: none;
 }
+.footnotes h5 {
+  color: var(--color-font-med);
+  display: none;
+}
 
 .spoiler {
 
@@ -448,7 +472,7 @@ sup a {
 
 
 @media (prefers-color-scheme: dark) {
-  .sectionHeaderImg {
+  img {
     filter: invert(1) hue-rotate(180deg) saturate(2.2);
     mix-blend-mode: screen;
   }
@@ -465,10 +489,11 @@ sup a {
 
 @media only screen and (max-width: 959px) {
 
-  .sectionHeaderImg {
-    max-width: initial;
-    padding: 0;
-    margin: 1rem auto;
+  h1 {
+    font-size: 3rem;
+  }
+  h6 {
+    font-size: 1.3rem;
   }
 
   #gridDisplay {
@@ -502,6 +527,17 @@ sup a {
 @media only screen and (max-width: 719px) {
   /* Change values over here */
 
+  h1 {
+    font-size: 2rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+
+  header .inner {
+    padding: 0;
+  }
+
   section .content,
   footer .content,
   footer .additionalContent,
@@ -534,6 +570,10 @@ sup a {
   .footnotes .footnoteBacklink {
     display: inline-block;
   }
+  .footnotes h5 {
+    display: block;
+  }
+
 
   footer .footerWrapper {
     flex-direction: column;

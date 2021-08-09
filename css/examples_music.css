@@ -35,9 +35,7 @@
   border-radius: var(--border-radius-big);
   box-shadow: var(--shadow);
 }
-#exampleMusic .play {
-  margin-left: 2rem;
-}
+
 #exampleMusic .clearSong:active,
 #exampleMusic .play:active {
   background: var(--color-bg-light);
@@ -137,6 +135,15 @@
   background: var(--color-highlight-dark);
 }
 
+#exampleMusic .noteBtns,
+#exampleMusic .controlBtns {
+  display: flex;
+}
+#exampleMusic .controlBtns {
+  margin-left: 1rem;
+}
+
+
 .zeldaSpoiler .spoilerInfo table {
   width: 100%;
 }
@@ -154,4 +161,38 @@
 .zeldaSpoilerNote.a {
   color: var(--color-highlight);
 }
+
+
+
+@media only screen and (max-width: 719px) {
+
+  #exampleMusic .song {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  #exampleMusic .noteLines {
+    top: 27%;
+    height: 150px;
+  }
+
+  #exampleMusic .notes .note {
+    --noteSize: 30px;
+  }
+
+  #exampleMusic .buttons{
+    flex-direction: column;
+    height: 30%;
+    justify-content: space-around;
+  }
+
+  #exampleMusic .controlBtns {
+    margin-left: 0;
+  }
+
+}
+
 

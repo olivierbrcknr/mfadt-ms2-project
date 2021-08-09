@@ -14,14 +14,19 @@ const example_music = (container) => {
 
     </div>
     <div class="buttons">
-      <div class="a noteBtn" data-type="a">A</div>
-      <div class="l noteBtn" data-type="l">←</div>
-      <div class="u noteBtn" data-type="u">↑</div>
-      <div class="r noteBtn" data-type="r">→</div>
-      <div class="d noteBtn" data-type="d">↓</div>
 
-      <div class="play">play</div>
-      <div class="clearSong">clear</div>
+      <div class="noteBtns">
+        <div class="a noteBtn" data-type="a">A</div>
+        <div class="l noteBtn" data-type="l">←</div>
+        <div class="u noteBtn" data-type="u">↑</div>
+        <div class="r noteBtn" data-type="r">→</div>
+        <div class="d noteBtn" data-type="d">↓</div>
+      </div>
+
+      <div class="controlBtns">
+        <div class="play">play</div>
+        <div class="clearSong">clear</div>
+      </div>
     </div>
   `
 

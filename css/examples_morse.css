@@ -43,7 +43,7 @@
 }
 #exampleMorse .morseButtonVis,
 #exampleMorse .morseCode .morseSignal {
-  background: var(--color-gray-med);
+  background: var(--color-font-footer);
   height: 12px;
   width: 12px;
   margin: 0 10px;
@@ -96,6 +96,25 @@
 .morseSpoiler .spoilerInfo td:last-child {
   letter-spacing: 0.2em;
 }
+
+
+@media only screen and (max-width: 719px) {
+  #exampleMorse {
+    height: 300px;
+  }
+
+  #exampleMorse .inputLetter .letter {
+    width: calc( 100% - 2rem );
+  }
+
+  #exampleMorse .morseCode {
+    height: 30%;
+  }
+  #exampleMorse .input {
+    height: 30%;
+  }
+}
+
 
 @media only screen and (max-width: 450px) {
 
