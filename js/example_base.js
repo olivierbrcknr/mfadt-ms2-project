@@ -57,17 +57,17 @@ const example_base = (container, base, maxDigits = 8) => {
   const updateFlipCard = ( index, newVal ) => {
 
     const card = binaryDigits[index]
-    const currentVal = parseInt( card.getAttribute( "data-currentValue" ) )
+    const currentCardVal = parseInt( card.getAttribute( "data-currentValue" ) )
 
-    if( currentVal !== newVal ){
+    if( currentCardVal !== newVal ){
 
       const top = card.querySelector('.card__top')
       const bottom = card.querySelector('.card__bottom')
       const back = card.querySelector('.card__back')
       const backBottom = card.querySelector('.card__back .card__bottom')
 
-      back.setAttribute('data-value', currentVal);
-      bottom.setAttribute('data-value', currentVal);
+      back.setAttribute('data-value', currentCardVal);
+      bottom.setAttribute('data-value', currentCardVal);
 
       // card.querySelector('card__bottom')
 
@@ -91,7 +91,14 @@ const example_base = (container, base, maxDigits = 8) => {
 
   const convertDecToBinary = (dec) => {
 
-    const bin = ( dec >>> 0).toString(base)
+    let int = dec
+
+    if( !dec || dec === "" ){
+      int = 0
+      numberInput.value = 0
+    }
+
+    const bin = ( int >>> 0).toString(base)
     let binaryVal = bin
 
     for( let i = bin.length; i <= maxDigits; i++ ){
@@ -145,18 +152,20 @@ const example_base = (container, base, maxDigits = 8) => {
 
       let switchVal = parseInt( bd.getAttribute( "data-currentValue" ) )
 
-      if( base === 2 ){
-        if( switchVal === 0 ){
-          switchVal = 1
-        }else{
-          switchVal = 0
-        }
-      }else{
+      // if( base === 2 ){
+      //   if( switchVal === 0 ){
+      //     switchVal = 1
+      //   }else{
+      //     switchVal = 0
+      //   }
+      // }
+      // else{
         switchVal++
         if( switchVal >= base ){
           switchVal = 0
         }
-      }
+      // }
+
       const newVal = currentVal.substr(0, i) + switchVal + currentVal.substr(i+1)
 
       convertBinaryToDec(newVal)

@@ -3,8 +3,6 @@ const example_music = (container) => {
   const base_HTML = `
     <div class="song">
       <div class="title"></div>
-      <div class="play">play</div>
-      <div class="clearSong">clear</div>
     </div>
     <div class="noteLines">
       <div class="line"></div>
@@ -21,6 +19,9 @@ const example_music = (container) => {
       <div class="u noteBtn" data-type="u">↑</div>
       <div class="r noteBtn" data-type="r">→</div>
       <div class="d noteBtn" data-type="d">↓</div>
+
+      <div class="play">play</div>
+      <div class="clearSong">clear</div>
     </div>
   `
 

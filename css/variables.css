@@ -4,6 +4,7 @@
   --font-family:  'IBM Plex Sans', sans-serif;
   --font-family-mono:  'IBM Plex Mono', monospace;
 
+  /* colors */
   --color-white: #FFF;
   --color-black: #131313;
 
@@ -30,6 +31,7 @@
   --interaction-background: #F5F5FA;
 
 
+  /* sizes */
   --marginal-column-width: 220px;
   --marginal-column-margin: 2rem;
   --max-width-text: 640px;
@@ -37,6 +39,10 @@
   --max-width: calc( var(--marginal-column-width) + var(--marginal-column-margin) + var(--max-width-text) );
 
 
+  /* interactions */
+  --shadow: 0px 3px 10px var(--shadow-color);
+
+  --border-radius-big: 6px;
 
 }
 

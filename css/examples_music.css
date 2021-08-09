@@ -10,23 +10,37 @@
 
 }
 #exampleMusic .song .title {
-  width: 300px;
-  background: var(--color-bg);
-  padding: 0.5rem;
-  height: 50px;
-  margin: 0 0.5rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--color-highlight);
+  font-weight: 500;
 }
-#exampleMusic .song .clearSong,
-#exampleMusic .song .play {
-  padding: 0.5rem;
-  height: 50px;
+#exampleMusic .clearSong,
+#exampleMusic .play {
+  height: 2.5rem;
+  width: 3rem;
   background: var(--color-bg-light);
   cursor: pointer;
   margin: 0 0.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-bg);
+  border-radius: var(--border-radius-big);
+  box-shadow: var(--shadow);
 }
-#exampleMusic .song .clearSong:active,
-#exampleMusic .song .play:active {
-  background: #aaa;
+#exampleMusic .play {
+  margin-left: 2rem;
+}
+#exampleMusic .clearSong:active,
+#exampleMusic .play:active {
+  background: var(--color-bg-light);
 }
 #exampleMusic .notes {
   height: 180px;
@@ -108,6 +122,8 @@
   cursor: pointer;
   border-radius: 1000px;
   color: var(--color-black);
+
+  box-shadow: var(--shadow);
 }
 #exampleMusic .noteBtn:active {
   background: var(--color-yellow-dark);
