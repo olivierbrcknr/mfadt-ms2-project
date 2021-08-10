@@ -11,8 +11,11 @@ let footnotesGenerated = false
 
 const initNav = () => {
 
+  let mobileNavIsOpen = false
+
   navDOM = document.querySelector('nav')
   footerDOM = document.querySelector('footer')
+  const toggleNav = navDOM.querySelector('.nav-toggleNav')
 
   const navListDOM = document.createElement('ul')
 
@@ -31,12 +34,23 @@ const initNav = () => {
     navA.innerText = h.textContent.replace(/(?:\r\n|\r|\n)/g, '')
     navA.href = "#"+anchor
 
+    navA.addEventListener('click',()=>{
+      if( mobileNavIsOpen ){
+        toggleNav.dispatchEvent( new Event('click') )
+      }
+    })
+
     navLi.append(navA)
     navListDOM.append(navLi)
 
   })
 
   navDOM.append(navListDOM)
+
+  toggleNav.addEventListener('click',()=>{
+    navDOM.classList.toggle('isOpen')
+    mobileNavIsOpen = !mobileNavIsOpen
+  })
 
   navElements = document.querySelectorAll("nav li")
 }
@@ -50,6 +64,8 @@ const updateNavOnScroll = () => {
     }
   })
 
+  let currentHeadlineText = ""
+
   navElements.forEach((li,i)=>{
 
     if( i < currentHeadline ){
@@ -58,12 +74,15 @@ const updateNavOnScroll = () => {
     }else if( i === currentHeadline ){
       li.classList.remove('isPast')
       li.classList.add('isCurrent')
+      currentHeadlineText = li.querySelector('a').innerText
     }else{
       li.classList.remove('isCurrent')
       li.classList.remove('isPast')
     }
 
   })
+
+  document.querySelector('nav .currentNavSection').innerText = currentHeadlineText
 
   const footerTop = window.innerHeight - footerDOM.getBoundingClientRect().top
 
@@ -201,10 +220,18 @@ const initToggleGridDisplay = () => {
 
   const btn = document.querySelector('#toggleGrid')
   const grid = document.querySelector('#gridDisplay')
+  let gridIsShown = false
+
   btn.addEventListener('click',()=>{
     grid.classList.toggle('hide')
-  })
+    gridIsShown = !gridIsShown
 
+    if( gridIsShown ){
+      btn.innerText = "hide grid"
+    }else{
+      btn.innerText = "show grid"
+    }
+  })
 }
 
 const initSpoilers = () => {
@@ -218,11 +245,8 @@ const initSpoilers = () => {
 
       s.classList.toggle('isOpen')
       positionFootnotes()
-
     })
-
   })
-
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -159,7 +159,7 @@ nav {
   /*max-width: calc( 50vw - var(--max-width) / 2 );*/
 
   pointer-events: none;
-  mix-blend-mode: multiply;
+  /*mix-blend-mode: multiply;*/
 }
 nav.isHidden {
   opacity: 0;
@@ -171,6 +171,7 @@ nav.isHidden li a {
 nav li {
   margin: 0;
   padding: 0;
+  line-height: 1;
 }
 nav li.isCurrent {
   font-weight: bold;
@@ -181,7 +182,7 @@ nav li.isPast {
 nav li a {
   display: inline-block;
   font-size: 13px;
-  padding: 4px 0;
+  padding: 10px 6px 10px 0;
 
   color: transparent;
   transition: color 0.3s;
@@ -191,7 +192,17 @@ nav li a {
 }
 nav:hover li a {
   color: var(--color-font);
+  /*border-radius: 2px;
+  background: var(--color-bg);
+  box-shadow: var(--shadow);*/
 }
+/*nav:hover li a span {
+  background: var(--color-bg);
+  padding: 2px;
+  border-radius: 2px;
+  box-shadow: var(--shadow);
+}*/
+
 nav li:hover {
   opacity: 1;
 }
@@ -220,6 +231,11 @@ nav li.H2 {
 }
 nav li.H3 a:before {
   width: 20px;
+}
+
+.currentNavSection,
+.nav-toggleNav {
+  display: none;
 }
 
 /* ————————————— */
@@ -477,7 +493,7 @@ sup a {
     mix-blend-mode: screen;
   }
   nav {
-    mix-blend-mode: screen;
+    /*mix-blend-mode: screen;*/
   }
   code {
     background: var(--interaction-background);
@@ -519,13 +535,126 @@ sup a {
     right: 1rem;
   }
 
+  header {
+    padding-top: 100px;
+  }
+
   nav {
+
+    --toggleNavSize: 60px;
+
+    top: calc( 100vh * -1 + 60px );
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-bg);
+    justify-content: flex-start;
+    pointer-events: initial;
+    transition: top 0.3s;
+    box-shadow: var(--shadow);
+  }
+  nav ul {
+    padding: 20px;
+    height: calc( 100vh - 60px );
+    overflow-y: scroll;
+    border-bottom: solid 1px var(--color-bg-light);
+  }
+
+  nav li a {
+    color: inherit;
+    font-size: 18px;
+    display: block;
+  }
+  nav li a:before {
     display: none;
   }
+  nav li.H2 {
+    text-transform: initial;
+  }
+  nav li.H3 a {
+    padding-left: 20px;
+  }
+
+  .currentNavSection {
+
+    display: block;
+    position: absolute;
+    height: var(--toggleNavSize);
+    width: calc( 100% - var(--toggleNavSize) );
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  .nav-toggleNav {
+    cursor: pointer;
+    display: block;
+    z-index: 11;
+    width: var(--toggleNavSize);
+    height: var(--toggleNavSize);
+    transition: height 0.3s;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .nav-toggleNav-upper,
+  .nav-toggleNav-lower {
+    background: var(--color-highlight);
+    width: calc( var(--toggleNavSize) / 2 );
+    height: 1px;
+    transition: all 0.3s;
+  }
+
+  .nav-toggleNav-upper {
+    transform-origin: 0% 0%;
+    position: absolute;
+    top: calc( var(--toggleNavSize) * 0.375 );
+    left: 10px;
+  }
+
+  .nav-toggleNav-lower {
+    transform-origin: 0% 100%;
+    position: absolute;
+    bottom: calc( var(--toggleNavSize) * 0.375 );
+    left: 10px;
+  }
+
+  nav.isOpen {
+    top: 0;
+  }
+
+  nav.isOpen .nav-toggleNav-upper {
+    transform: rotate(45deg);
+    top: calc( var(--toggleNavSize) * 0.325 );
+    left: calc( var(--toggleNavSize) * 0.325 );
+  }
+  nav.isOpen .nav-toggleNav-lower {
+    transform: rotate(-45deg);
+    bottom: calc( var(--toggleNavSize) * 0.325 - 1px );
+    left: calc( var(--toggleNavSize) * 0.325 );
+  }
+
+  nav.isHidden {
+    opacity: initial;
+  }
+  nav.isHidden li a {
+    pointer-events: initial;
+  }
+
 }
 
 @media only screen and (max-width: 719px) {
   /* Change values over here */
+
+  html, body {
+    font-size: 16px;
+  }
 
   h1 {
     font-size: 2rem;

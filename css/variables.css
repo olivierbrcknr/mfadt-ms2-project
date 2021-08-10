@@ -57,7 +57,8 @@
     --color-bg-light:    #4E5260;
     --interaction-background: #363841;
 
-    --shadow-color: #23242955;
+    --shadow-color: #0003;
+    --shadow: 0px 3px 10px var(--shadow-color);
   }
 }
 
