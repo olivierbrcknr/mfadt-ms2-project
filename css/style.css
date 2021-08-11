@@ -415,6 +415,7 @@ sup a {
   color: var(--color-font-med);
   transition: color 0.3s;
   position: absolute;
+  top: -100vh;
  /* word-break: break-all;*/
 }
 .footnotes ol li::marker {
